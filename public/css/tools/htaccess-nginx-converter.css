@@ -1,0 +1,110 @@
+/* .htaccess → Nginx Converter - v1.20.8. Canonical law: this
+   stylesheet styles ONLY the tool's inner components - no page
+   background, no h1, no hero, no page padding. #h2n scoped, every
+   class h2n-*. Base styles live OUTSIDE any hover query. */
+#h2n {
+	color-scheme: dark;
+	--surface: #111318; --surface-2: #181c24; --border-2: #232a36;
+	--text: #e2e8f0; --muted: #8896aa; --dim: #7586a0;
+	--green: #00ff91; --green-border: rgba(0, 255, 145, .22);
+	--amber: #ffb86b; --red: #ff5c5c; --cyan: #5cc8ff;
+	--font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+	font-family: var(--font-mono); font-size: 13.5px; line-height: 1.55; color: var(--text);
+	-webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent; touch-action: manipulation;
+	margin: 0 auto; max-width: var(--content-w);
+}
+#h2n * { box-sizing: border-box; }
+#h2n button, #h2n textarea, #h2n input, #h2n select { font-family: inherit; }
+#h2n [hidden] { display: none !important; }
+
+#h2n .h2n-wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+#h2n .h2n-card { background: var(--surface); border: 1px solid var(--border-2); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+#h2n .h2n-sec { display: flex; align-items: center; gap: 10px; margin: 2px 0; flex-wrap: wrap; }
+#h2n .h2n-sec .h2n-sdot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+#h2n .h2n-sec h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--text); }
+#h2n .h2n-sec .h2n-line { flex: 1 1 auto; height: 1px; background: var(--border-2); }
+#h2n .h2n-sec .h2n-hint { font-size: 10.5px; color: var(--dim); }
+
+#h2n textarea {
+	width: 100%; background: #0d0d0d; border: 1px solid var(--border-2); border-radius: 8px; color: var(--text);
+	font: 400 12.5px/1.55 var(--font-mono); padding: 12px 14px; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; tab-size: 2;
+}
+#h2n .h2n-src { min-height: 200px; resize: vertical; }
+#h2n .h2n-out { min-height: 200px; resize: vertical; background: var(--surface-2); }
+#h2n textarea:focus-visible { outline: 2px solid var(--green); }
+#h2n textarea::placeholder { color: var(--dim); }
+
+#h2n .h2n-btnrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+#h2n .h2n-btn { -webkit-user-select: none; user-select: none;
+	display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+	flex: 1 1 auto; min-height: 44px; padding: 0 18px; border-radius: 8px; cursor: pointer;
+	font: inherit; font-size: 13px; font-weight: 700; letter-spacing: .02em; white-space: nowrap;  border: 1px solid transparent; text-decoration: none;
+}
+#h2n .h2n-btn:active { transform: translateY(1px); }
+#h2n .h2n-btn.h2n-primary { background: var(--green); color: #04160d; }
+#h2n .h2n-btn.h2n-ghost { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-2); }
+#h2n .h2n-stats { font-size: 11.5px; color: var(--muted); min-height: 18px; }
+
+#h2n .h2n-filelabel { flex: 1 1 auto; min-height: 44px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+	border-radius: 8px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-2);
+	cursor: pointer; font-size: 13px; font-weight: 700; }
+#h2n .h2n-fileinput { display: none; }
+#h2n .h2n-filemsg { font-size: 11.5px; color: var(--dim); flex: 1 1 100%; min-height: 16px; }
+
+#h2n .h2n-note { display: flex; flex-direction: column; gap: 3px; padding: 8px 10px; border-left: 2px solid var(--green-border); background: rgba(0, 255, 145, .03); border-radius: 0 8px 8px 0; }
+#h2n .h2n-note + .h2n-note { margin-top: 8px; }
+#h2n .h2n-note-src { font-size: 11px; color: var(--dim); }
+#h2n .h2n-note-txt { font-size: 12px; color: var(--muted); }
+
+#h2n .h2n-honest { font-size: 12px; color: var(--muted); }
+#h2n .h2n-honest b { color: var(--amber); }
+
+#h2n .h2n-foot { font-size: 11px; color: var(--dim); text-align: center; }
+
+@media (max-width: 640px) {
+	#h2n .h2n-btn { flex: 1 1 100%; }
+	#h2n .h2n-filelabel { flex: 1 1 100%; }
+}
+
+/* hover ADDS affordance only - base styles are all above, outside any hover query */
+@media (hover: hover) {
+	#h2n .h2n-btn.h2n-ghost:hover { border-color: var(--green-border); color: var(--text); }
+	#h2n .h2n-btn.h2n-primary:hover { filter: brightness(1.07); }
+	#h2n .h2n-filelabel:hover { border-color: var(--green-border); color: var(--text); }
+}
+/* ══ v1.21.56 App #12 audit - related grid + visible FAQ (6-point law) ══ */
+#h2n .h2n-related { margin-top: 48px; }
+#h2n .h2n-related-h, #h2n .h2n-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#h2n .h2n-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#h2n .h2n-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#h2n .h2n-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#h2n .h2n-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#h2n .h2n-faq { margin-top: 48px; }
+#h2n .h2n-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#h2n .h2n-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#h2n .h2n-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#h2n .h2n-faq-item[open] summary::before { content: "\25BE  "; }
+#h2n .h2n-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+@media (hover: hover) {
+  #h2n .h2n-rel-card:hover { border-color: var(--green-border); }
+  #h2n .h2n-rel-card:hover .h2n-rel-name { color: var(--green); }
+  #h2n .h2n-faq-item summary:hover { color: var(--green); }
+}

@@ -1,0 +1,129 @@
+
+#ngxapp {
+    color-scheme:dark;
+    --bg:#0d0d0d; --surface:#111318; --surface-2:#181c24; --border-2:#232a36;
+    --text:#e2e8f0; --muted:#8896aa; --dim:#7586a0;
+    --green:#00ff91; --green-border:rgba(0,255,145,.22);
+    --amber:#ffb86b; --red:#ff5c5c; --cyan:#5cc8ff;
+    --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  }
+#ngxapp * {box-sizing:border-box}
+#ngxapp [hidden] {display:none !important}
+#ngxapp .ngx-wrap {max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+
+#ngxapp .ngx-card {background:var(--surface);border:1px solid var(--border-2);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+
+#ngxapp .sec-head {display:flex;align-items:center;gap:10px;margin:6px 0 0}
+#ngxapp .sec-head .ic {width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 auto}
+#ngxapp .sec-head h2 {margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--text)}
+#ngxapp .sec-head .line {flex:1 1 auto;height:1px;background:var(--border-2)}
+
+  /* preset cards */
+#ngxapp .presets {display:flex;flex-direction:column;gap:8px}
+#ngxapp .preset { -webkit-user-select: none; user-select: none;}
+#ngxapp .preset input {flex:0 0 auto;width:20px;height:20px;accent-color:var(--green);margin:3px 0 0;cursor:pointer}
+#ngxapp .preset input:focus-visible {outline:2px solid var(--green);outline-offset:2px;border-radius:3px}
+#ngxapp .preset .body {display:flex;flex-direction:column;gap:3px;flex:1 1 auto;min-width:0}
+#ngxapp .preset .t {font-size:13px;font-weight:700;color:var(--text)}
+#ngxapp .preset .d {font-size:11.5px;color:var(--muted);line-height:1.45}
+#ngxapp .preset[data-on="1"] {border-color:var(--green-border)}
+#ngxapp .preset .d b {color:var(--green);font-weight:600}
+#ngxapp .preset .d .x {color:var(--red);font-weight:600}
+
+  /* toggle rows + fields */
+#ngxapp .opt { -webkit-user-select: none; user-select: none;}
+#ngxapp .opt input[type=checkbox] {width:20px;height:20px;flex:0 0 auto;accent-color:var(--green);margin:2px 0 0;cursor:pointer}
+#ngxapp .opt input[type=checkbox]:focus-visible {outline:2px solid var(--green);outline-offset:2px;border-radius:3px}
+#ngxapp .opt .body {display:flex;flex-direction:column;gap:3px;flex:1 1 auto;min-width:0}
+#ngxapp .opt .title {font-size:13px;font-weight:700;color:var(--text)}
+#ngxapp .opt .title .badge {font-size:9.5px;font-weight:700;color:var(--green);border:1px solid var(--green-border);border-radius:4px;padding:1px 5px;margin-left:6px;letter-spacing:.06em}
+#ngxapp .opt .desc {font-size:11.5px;color:var(--muted);line-height:1.45}
+#ngxapp .opt[data-on="1"] {border-color:var(--green-border)}
+
+#ngxapp .field {display:flex;flex-direction:column;gap:5px}
+#ngxapp .field .flbl {font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+#ngxapp input[type=text], #ngxapp input[type=number], #ngxapp textarea, #ngxapp select {
+    width:100%;background:var(--bg);border:1px solid var(--border-2);border-radius:8px;
+    color:var(--text);font:400 12.5px/1.5 var(--font-mono);padding:10px 12px;
+  }
+#ngxapp input[type=text], #ngxapp input[type=number], #ngxapp select {min-height:44px}
+#ngxapp textarea {resize:vertical;min-height:76px}
+#ngxapp input:focus-visible, #ngxapp textarea:focus-visible, #ngxapp select:focus-visible {outline:2px solid var(--green)}
+#ngxapp input::placeholder, #ngxapp textarea::placeholder {color:var(--dim)}
+#ngxapp .grid2 {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#ngxapp .opt .desc code, #ngxapp .preset .d code, #ngxapp .desc code {word-break:break-word;overflow-wrap:anywhere}
+
+  @media (max-width:420px){
+#ngxapp .grid2 {grid-template-columns:1fr}
+  }
+
+#ngxapp .ngx-btn { -webkit-user-select: none; user-select: none;}
+#ngxapp .ngx-btn:active {transform:translateY(1px)}
+#ngxapp .ngx-btn.ngx-p {background:var(--green);color:#04160d;border:1px solid transparent}
+#ngxapp .ngx-btn.ngx-ghost {background:var(--surface-2);color:var(--muted);border:1px solid var(--border-2)}
+#ngxapp .actions {display:flex;flex-wrap:wrap;gap:10px}
+#ngxapp .actions .ngx-btn {flex:1 1 auto}
+
+#ngxapp .ngx-out {gap:12px}
+#ngxapp .out-cap {font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px}
+#ngxapp .preview {background:var(--bg);border:1px solid var(--border-2);border-radius:8px;padding:14px;max-height:420px;overflow:auto;font-size:12px;line-height:1.6}
+#ngxapp .preview code {font:inherit;white-space:pre-wrap;word-break:break-word;color:var(--text);display:block;overflow-wrap:anywhere}
+#ngxapp .preview .cmt {color:#5f7d68}
+#ngxapp .preview .kw {color:var(--cyan);font-weight:600}
+#ngxapp .preview .brace {color:var(--green);font-weight:600}
+#ngxapp .preview .str {color:var(--amber)}
+#ngxapp .foot {font-size:11px;color:var(--dim);text-align:center}
+
+  @media (hover:hover){
+#ngxapp .preset:hover {border-color:var(--green-border)}
+#ngxapp .opt:hover {border-color:var(--green-border)}
+#ngxapp .ngx-btn.ngx-ghost:hover {border-color:var(--green-border);color:var(--text)}
+#ngxapp .ngx-btn.ngx-p:hover {filter:brightness(1.07)}
+  }
+/* ══ v1.21.25 - theme .card:hover leak neutralized (lift+glow never designed for tool cards).
+   R5-gated: hover-only, touch devices unaffected. ══ */
+@media (hover: hover) {
+  #ngxapp .ngx-card:hover { transform: none; box-shadow: none; border-color: var(--border-2); background: var(--surface); }
+  #ngxapp .ngx-btn:hover { box-shadow: none; }
+}
+
+/* ══ v1.21.54 App #11 audit - related grid + visible FAQ (6-point law) ══ */
+#ngxapp .ngx-related { margin-top: 48px; }
+#ngxapp .ngx-related-h, #ngxapp .ngx-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#ngxapp .ngx-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#ngxapp .ngx-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#ngxapp .ngx-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#ngxapp .ngx-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#ngxapp .ngx-faq { margin-top: 48px; }
+#ngxapp .ngx-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#ngxapp .ngx-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#ngxapp .ngx-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#ngxapp .ngx-faq-item[open] summary::before { content: "\25BE  "; }
+#ngxapp .ngx-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+@media (hover: hover) {
+  #ngxapp .ngx-rel-card:hover { border-color: var(--green-border); }
+  #ngxapp .ngx-rel-card:hover .ngx-rel-name { color: var(--green); }
+  #ngxapp .ngx-faq-item summary:hover { color: var(--green); }
+}
+
+/* ══ v1.21.57 - input-validation message (re-added WITH its styles this time) ══ */
+#ngxapp .ngx-msg { display: flex; gap: 8px; align-items: flex-start; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; background: var(--surface); border: 1px solid rgba(255,92,92,.38); color: var(--red); }
+#ngxapp .ngx-msg[hidden] { display: none; }
+/* v1.22.6 cross-browser audit: legacy iOS momentum hint */
+#ngxapp .preview { -webkit-overflow-scrolling: touch; }

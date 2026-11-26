@@ -1,0 +1,83 @@
+/* WordPress Schema / JSON-LD Generator - v1.19.85. Brand dark, scoped #sch-app. */
+#sch-app { color-scheme: dark; --sch-green: var(--green); --sch-border: var(--green-border); }
+#sch-app * { box-sizing: border-box; }
+
+#sch-app .sch-wrap { display: flex; flex-direction: column; gap: 14px; }
+#sch-app .sch-card { background: var(--surface); border: 1px solid var(--border-2); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+#sch-app .sch-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 820px) { #sch-app .sch-grid { grid-template-columns: 1fr 1fr; } }
+
+#sch-app .sch-title { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .02em; color: var(--text); }
+#sch-app .sch-tag { margin: 0; font-size: 12px; color: var(--dim); }
+
+#sch-app .sch-field { display: flex; flex-direction: column; gap: 5px; }
+#sch-app .sch-lbl { font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--dim); }
+#sch-app .sch-hint { color: var(--muted); text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
+#sch-app .sch-in { width: 100%; background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; color: var(--text); font: 400 13px/1.5 var(--font-mono); padding: 10px 12px; min-height: 44px; }
+#sch-app textarea.sch-in { resize: vertical; min-height: 76px; }
+#sch-app .sch-in:focus-visible { outline: 2px solid var(--green); }
+#sch-app select.sch-in { cursor: pointer; }
+
+#sch-app .sch-btn { -webkit-user-select: none; user-select: none; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: 8px; cursor: pointer; font: 700 13px var(--font-mono); letter-spacing: .02em; white-space: nowrap; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-2); }
+#sch-app .sch-btn.sch-p { background: var(--green); color: #04160d; border-color: transparent; }
+#sch-app .sch-btn:active { transform: translateY(1px); }
+#sch-app .sch-btnrow { display: flex; flex-wrap: wrap; gap: 10px; }
+
+#sch-app .sch-outbox { display: flex; flex-direction: column; gap: 10px; }
+#sch-app .sch-out { background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; padding: 14px; max-height: 380px; overflow: auto; font: 400 12px/1.6 var(--font-mono); white-space: pre-wrap; word-break: break-word; color: var(--text); }
+#sch-app .sch-outcap { display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--dim); }
+#sch-app .sch-outcap .line { flex: 1; height: 1px; background: var(--border-2); }
+
+#sch-app .sch-note { border-left: 3px solid var(--green-border); padding: 12px 14px; background: rgba(0,255,145,.05); border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+#sch-app .sch-note.ok { border-color: var(--green-border); }
+#sch-app .sch-note.warn { border-color: rgba(255,92,92,.38); background: rgba(255,92,92,.05); }
+
+#sch-app .sch-privacy { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--green); padding: 6px 12px; border: 1px solid var(--green-border); border-radius: 8px; background: rgba(0,255,145,.05); flex: 1 1 auto; min-width: 0; max-width: 100%; white-space: normal; word-break: break-word; overflow-wrap: anywhere; line-height: 1.4; }
+#sch-app .sch-privacy .sch-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+
+@media (hover:hover) {
+  #sch-app .sch-btn:hover { border-color: var(--green-border); color: var(--text); }
+  #sch-app .sch-btn.sch-p:hover { filter: brightness(1.07); color: #04160d; }
+}
+
+/* ══ v1.21.59 App #14 audit - section heads + related grid + visible FAQ (6-point law) ══ */
+#sch-app .sch-sec { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; }
+#sch-app .sch-sdot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+#sch-app .sch-sec h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--text); }
+#sch-app .sch-sec .sch-line { flex: 1 1 auto; height: 1px; background: var(--border-2); }
+
+#sch-app .sch-related { margin-top: 48px; }
+#sch-app .sch-related-h, #sch-app .sch-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#sch-app .sch-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#sch-app .sch-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#sch-app .sch-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#sch-app .sch-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#sch-app .sch-faq { margin-top: 48px; }
+#sch-app .sch-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#sch-app .sch-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#sch-app .sch-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#sch-app .sch-faq-item[open] summary::before { content: "\25BE  "; }
+#sch-app .sch-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+@media (hover: hover) {
+  #sch-app .sch-rel-card:hover { border-color: var(--green-border); }
+  #sch-app .sch-rel-card:hover .sch-rel-name { color: var(--green); }
+  #sch-app .sch-faq-item summary:hover { color: var(--green); }
+}
+/* v1.22.6 cross-browser audit: legacy iOS momentum hint */
+#sch-app .sch-out { -webkit-overflow-scrolling: touch; }

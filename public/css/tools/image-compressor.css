@@ -1,0 +1,330 @@
+/* Image Compressor / Resizer / WebP Converter - tool-specific styles.
+   Full port of the "img-min" master build (the King's pick: "the design is
+   so pleasing"). Every class is `imc-` prefixed and scoped under #imc-app so
+   it cannot bleed into the theme, and every color resolves through the
+   theme's real :root tokens (--green*/--surface*/--font-mono/--r-*) so it
+   blends with the brand exactly like the JSON formatter. The iOS/iPadOS
+   share-sheet download fix is folded in. */
+
+
+#imc-app { max-width: var(--content-w); }
+#imc-app { color-scheme: dark; }
+#imc-app [hidden] { display: none !important; }
+#imc-app * { box-sizing: border-box; }
+#imc-app ::selection { background: var(--green); color: #04160d; }
+#imc-app :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+.imc-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.imc-msg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  color: var(--mid);
+}
+.imc-msg.imc-warn { border-color: rgba(255, 184, 107, .38); color: #ffb86b; }
+.imc-msg.imc-err { border-color: rgba(255, 107, 107, .38); color: #ff6b6b; }
+
+/* R2: the drop zone is a <label>; a non-inline flex column so children stack/center */
+.imc-zone { -webkit-user-select: none; user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 224px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px dashed var(--green-border);
+  border-radius: 12px;  transition: border-color .15s, background-color .15s;
+}
+.imc-zone:active { transform: scale(.995); }
+.imc-z-title { font-size: 15px; font-weight: 700; }
+.imc-z-sub { font-size: 12px; color: var(--dim); }
+.imc-z-ico { color: var(--green); opacity: .92; }
+.imc-zone.imc-drag { border-color: var(--green); border-style: solid; background: var(--surface-2); }
+.imc-zone.imc-drag * { pointer-events: none; }
+
+.imc-btn { -webkit-user-select: none; user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  text-decoration: none;  }
+.imc-btn:active { transform: translateY(1px); }
+.imc-btn.imc-primary { background: var(--green); color: #04160d; border: 1px solid transparent; }
+.imc-btn.imc-ghost { background: var(--surface-2); color: var(--mid); border: 1px solid var(--border-2); }
+.imc-btn.imc-outline { background: transparent; color: var(--green); border: 1px solid var(--green-border); }
+.imc-btn.imc-disabled { opacity: .45; pointer-events: none; }
+.imc-chooseBtn { align-self: center; min-width: 220px; }
+
+.imc-card {
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.imc-preview-box { -webkit-user-select: none; user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 180px;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border-2);
+  background-color: #0f121a;
+  background-image: repeating-conic-gradient(#151a24 0% 25%, #0f121a 0% 50%);
+  background-size: 18px 18px;  transition: border-color .15s;
+}
+.imc-preview-box.imc-drag { border-color: var(--green); }
+.imc-preview {
+  max-width: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  -webkit-user-drag: none;
+}
+.imc-pv-hint { font-size: 11px; color: var(--dim); }
+
+.imc-stats { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.imc-stat { display: flex; flex-direction: column; gap: 3px; flex: 1 1 150px; min-width: 0; }
+.imc-k { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.imc-v { font-size: 13.5px; overflow-wrap: anywhere; }
+.imc-arr { color: var(--dim); flex: 0 0 auto; }
+.imc-badge { flex: 0 0 auto; font-weight: 700; font-size: 13.5px; padding: 6px 12px; border-radius: 8px; background: var(--surface-2); color: var(--mid); border: 1px solid var(--border-2); }
+.imc-badge.imc-good { background: var(--green-dim); border-color: var(--green-border); color: var(--green); }
+.imc-badge.imc-bad { background: rgba(255, 184, 107, .10); border-color: rgba(255, 184, 107, .32); color: #ffb86b; }
+.imc-capnote { margin: 0; font-size: 11.5px; color: var(--dim); }
+
+.imc-ctrl { background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.imc-rowline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.imc-lbl { flex: 0 0 64px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.imc-val { flex: 0 0 auto; color: var(--green); font-size: 13px; min-width: 4.5ch; text-align: right; }
+.imc-rowline.imc-off { opacity: .45; }
+.imc-rowline.imc-off .imc-val { color: var(--dim); }
+
+.imc-seg { display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto; background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; padding: 4px; }
+.imc-seg label { position: relative; display: flex; flex: 1 1 auto; cursor: pointer; }
+.imc-seg input { position: absolute; opacity: 0; top: 0; left: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.imc-seg span { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; padding: 0 12px; border-radius: 6px; color: var(--mid); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.imc-seg input:checked + span { background: var(--green-dim); color: var(--green); }
+.imc-seg input:focus-visible + span { outline: 2px solid var(--green); outline-offset: 1px; }
+.imc-seg input:disabled + span { opacity: .5; }
+
+.imc-range { -webkit-appearance: none; appearance: none; flex: 1 1 120px; min-width: 0; height: 44px; margin: 0; background: transparent; cursor: pointer; }
+.imc-range::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: var(--border-2); }
+.imc-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--green); border: none; margin-top: -8px; box-shadow: 0 0 0 3px var(--green-dim); }
+.imc-range::-moz-range-track { height: 4px; border-radius: 2px; background: var(--border-2); }
+.imc-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--green); border: none; box-shadow: 0 0 0 3px var(--green-dim); }
+.imc-range:disabled { opacity: .5; cursor: default; }
+.imc-range:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+.imc-dims { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1 1 auto; }
+.imc-number { width: 9.5ch; min-height: 44px; padding: 0 10px; font: inherit; font-size: 16px; color: var(--text); background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; }
+.imc-number::-webkit-outer-spin-button, .imc-number::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.imc-number { -moz-appearance: textfield; appearance: textfield; }
+.imc-number:focus-visible { outline: 2px solid var(--green); }
+.imc-x { color: var(--dim); flex: 0 0 auto; }
+.imc-lock { -webkit-user-select: none; user-select: none; display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; min-height: 44px; padding: 0 12px; cursor: pointer; background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; color: var(--mid); font-size: 12px;  }
+.imc-lock input { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; accent-color: var(--green); }
+.imc-lock input:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 3px; }
+
+/* R1: native label-for opens the picker even though the input is display:none */
+.imc-fileInput { display: none; }
+
+.imc-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.imc-dl { flex: 1 1 200px; }
+.imc-actions .imc-btn.imc-ghost { flex: 0 1 auto; }
+
+/* Download all row - two options side by side, then the hint */
+.imc-dlall { flex: 1 1 auto; }
+.imc-dlall-hint { flex: 1 1 100%; font-size: 11px; color: var(--dim); line-height: 1.5; }
+
+/* Total savings summary - live aggregate across every compressed image */
+.imc-summary {
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+.imc-summary__stat { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.imc-summary__badge { flex: 0 0 auto; }
+.imc-summary__note { flex: 1 1 100%; margin: 0; font-size: 11px; color: var(--dim); line-height: 1.5; }
+
+.imc-foot { font-size: 11px; color: var(--dim); text-align: center; }
+
+/* ── #5: type-a-percent input beside the slider ─────────────────────────── */
+.imc-pct-num { width: 8ch; min-width: 72px; }
+
+/* ── #1 + #4: batch results - one before/after card per image ───────────── */
+.imc-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.imc-item {
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.imc-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.imc-item__name {
+  font-size: 12.5px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.imc-item__head .imc-badge { flex: 0 0 auto; }
+.imc-item__previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.imc-ba {
+  margin: 0;
+  min-width: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+}
+.imc-ba__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--bg);
+  opacity: .85;
+}
+.imc-ba__img.is-live { opacity: 1; }
+.imc-ba__cap {
+  padding: 6px 8px;
+  font-size: 10.5px;
+  color: var(--dim);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.imc-item .imc-actions { margin-top: auto; }
+.imc-item .imc-actions .imc-btn { flex: 1 1 200px; }
+.imc-capnote { font-size: 11.5px; color: var(--dim); margin: 0; }
+
+/* R5: every hover effect is gated so a tap on touch never sticks the hover state */
+@media (hover: hover) {
+  .imc-zone:hover { border-color: var(--green-border); background: var(--surface-2); }
+  .imc-btn.imc-ghost:hover { border-color: var(--green-border); color: var(--text); }
+  .imc-btn.imc-primary:hover { filter: brightness(1.07); }
+  .imc-btn.imc-outline:hover { background: var(--green-dim); }
+  .imc-seg span:hover { color: var(--text); }
+  .imc-lock:hover { border-color: var(--green-border); color: var(--text); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .imc-zone, .imc-preview-box, .imc-btn { transition: none; }
+}
+
+/* responsive: the img-min layout is a single column by design; nothing to
+   collapse, but keep the app width capped on large screens. */
+@media (max-width: 900px) {
+  #imc-app { grid-template-columns: 1fr; }
+  .imc-item__previews { grid-template-columns: 1fr; }
+}
+/* ══ v1.21.18 App #2 audit - terminal cards + related + FAQ (48px spacing law) ══ */
+#imc-app .imc-card { display: flex; flex-direction: column; gap: 12px; }
+#imc-app .imc-card--up { background: var(--surface); border: 1px solid var(--border-2); border-radius: 12px; padding: 16px; }
+#imc-app .imc-card--results { background: var(--surface); border: 1px solid var(--border-2); border-radius: 12px; padding: 16px; margin-top: 16px; }
+#imc-app .imc-card--up .imc-zone { margin-top: 2px; }
+#imc-app .imc-sec { display: flex; align-items: center; gap: 10px; margin: 2px 0; }
+#imc-app .imc-sdot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+#imc-app .imc-sec h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--text); font-family: var(--font-mono); }
+#imc-app .imc-sec .imc-line { flex: 1 1 auto; height: 1px; background: var(--border-2); }
+#imc-app .imc-card { margin: 0; }
+
+/* related grid */
+#imc-app .imc-related { margin-top: 48px; }
+#imc-app .imc-related-h, #imc-app .imc-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#imc-app .imc-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#imc-app .imc-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#imc-app .imc-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#imc-app .imc-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--dim); }
+
+/* visible FAQ */
+#imc-app .imc-faq { margin-top: 48px; }
+#imc-app .imc-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#imc-app .imc-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#imc-app .imc-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#imc-app .imc-faq-item[open] summary::before { content: "\25BE  "; }
+#imc-app .imc-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--mid);
+}
+
+/* v1.21.21: hover effects gated for touch devices (R5 law) */
+@media (hover: hover) {
+#imc-app .imc-card--up:hover { transform: none; background: var(--surface); border-color: var(--border-2); }
+#imc-app .imc-card--results:hover { transform: none; background: var(--surface); border-color: var(--border-2); }
+#imc-app .imc-rel-card:hover { border-color: var(--green-border); }
+#imc-app .imc-rel-card:hover .imc-rel-name { color: var(--green); }
+#imc-app .imc-faq-item summary:hover { color: var(--green); }
+}
+/* v1.22.6 cross-browser audit: aspect-ratio fallback for iOS 14.0-14.4 (padding-top intrinsic ratio) */
+@supports not (aspect-ratio: 4 / 3) {
+  .imc-ba { position: relative; padding-top: 75%; }
+  .imc-ba__img { position: absolute; top: 0; left: 0; height: 100%; }
+}

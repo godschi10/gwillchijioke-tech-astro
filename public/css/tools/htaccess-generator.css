@@ -1,0 +1,117 @@
+
+ #htapp {
+    color-scheme:dark;
+    --bg:#0d0d0d; --surface:#111318; --surface-2:#181c24; --border-2:#232a36;
+    --text:#e2e8f0; --muted:#8896aa; --dim:#7586a0;
+    --green:#00ff91; --green-border:rgba(0,255,145,.22);
+    --amber:#ffb86b; --red:#ff5c5c; --cyan:#5cc8ff;
+    --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  }
+ #htapp * {box-sizing:border-box}
+ #htapp [hidden] {display:none !important}
+ #htapp .htapp-wrap {max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:16px} #htapp .tag {margin:0;font-size:12.5px;color:var(--dim)}
+  
+ #htapp .htapp-card {background:var(--surface);border:1px solid var(--border-2);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+
+ #htapp .sec-head {display:flex;align-items:center;gap:10px;margin:6px 0 0}
+ #htapp .sec-head .ic {width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 auto}
+ #htapp .sec-head h2 {margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--text)}
+  #htapp .sec-head .line {flex:1 1 auto;height:1px;background:var(--border-2)}
+
+ #htapp .opt { -webkit-user-select: none; user-select: none;}
+ #htapp .opt input[type=checkbox] {width:20px;height:20px;flex:0 0 auto;accent-color:var(--green);margin:2px 0 0;cursor:pointer}
+ #htapp .opt input[type=checkbox]:focus-visible {outline:2px solid var(--green);outline-offset:2px;border-radius:3px}
+ #htapp .opt .body {display:flex;flex-direction:column;gap:3px;flex:1 1 auto;min-width:0}
+ #htapp .opt .title {font-size:13px;font-weight:700;color:var(--text)}
+ #htapp .opt .title .badge {font-size:9.5px;font-weight:700;color:var(--green);border:1px solid var(--green-border);border-radius:4px;padding:1px 5px;margin-left:6px;letter-spacing:.06em}
+ #htapp .opt .desc {font-size:11.5px;color:var(--muted);line-height:1.45}
+ #htapp .opt .warn {font-size:11px;color:var(--amber);line-height:1.45;margin-top:4px}
+ #htapp .opt[data-on="1"] {border-color:var(--green-border)}
+
+ #htapp .opt-panel {display:flex;flex-direction:column;gap:10px;padding:2px 4px 6px 46px}
+ #htapp .field {display:flex;flex-direction:column;gap:5px}
+ #htapp .field .flbl {font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+ #htapp input[type=text], #htapp textarea {
+    width:100%;background:var(--bg);border:1px solid var(--border-2);border-radius:8px;
+    color:var(--text);font:400 12.5px/1.5 var(--font-mono);padding:10px 12px;
+  }
+ #htapp input[type=text] {min-height:44px}
+ #htapp textarea {resize:vertical;min-height:80px}
+ #htapp input[type=text]:focus-visible, #htapp textarea:focus-visible {outline:2px solid var(--green)}
+ #htapp input::placeholder, #htapp textarea::placeholder {color:var(--dim)}
+ #htapp select {width:100%;background:var(--bg);border:1px solid var(--border-2);border-radius:8px;color:var(--text);
+    font:inherit;font-size:13px;padding:10px 12px;min-height:44px}
+
+ #htapp .htapp-btn { -webkit-user-select: none; user-select: none;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    flex:0 0 auto;min-height:44px;padding:0 18px;border-radius:8px;cursor:pointer;
+    font:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;white-space:nowrap;text-decoration:none;  }
+ #htapp .htapp-btn:active {transform:translateY(1px)}
+ #htapp .htapp-btn.htapp-p {background:var(--green);color:#04160d;border:1px solid transparent}
+ #htapp .htapp-btn.htapp-ghost {background:var(--surface-2);color:var(--muted);border:1px solid var(--border-2)}
+ #htapp .actions {display:flex;flex-wrap:wrap;gap:10px}
+ #htapp .actions .htapp-btn {flex:1 1 auto}
+
+ #htapp .htapp-out {gap:12px}
+ #htapp .out-cap {font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px}
+ #htapp .preview {background:var(--bg);border:1px solid var(--border-2);border-radius:8px;padding:14px;max-height:380px;overflow:auto;font-size:12px;line-height:1.6}
+ #htapp .preview code {font:inherit;white-space:pre-wrap;word-break:break-word;color:var(--text);display:block;overflow-wrap:anywhere}
+ #htapp .preview .cmt {color:#5f7d68}
+ #htapp .preview .kw {color:var(--cyan);font-weight:600}
+ #htapp .preview .tag {color:var(--green);font-weight:600}
+ 
+  
+ #htapp .foot {font-size:11px;color:var(--dim);text-align:center}
+
+  /* R: hover gated behind capability query so a touch tap never latches it */
+  @media (hover:hover){
+ #htapp .opt:hover {border-color:var(--green-border)}
+ #htapp .htapp-btn.htapp-ghost:hover {border-color:var(--green-border);color:var(--text)}
+ #htapp .htapp-btn.htapp-p:hover {filter:brightness(1.07)}
+  }
+  @media (prefers-reduced-motion:reduce){  }
+
+/* ══ v1.21.25 - theme .card:hover leak neutralized (lift+glow never designed for tool cards).
+   R5-gated: hover-only, touch devices unaffected. ══ */
+@media (hover: hover) {
+  #htapp .htapp-card:hover { transform: none; box-shadow: none; border-color: var(--border-2); background: var(--surface); }
+  #htapp .htapp-btn:hover { box-shadow: none; }
+}
+
+/* ══ v1.21.39 App #6 audit - related grid + visible FAQ (6-point law) ══ */
+#htapp .htapp-related { margin-top: 48px; }
+#htapp .htapp-related-h, #htapp .htapp-faq-h {
+  font-family: var(--font-mono, monospace); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#htapp .htapp-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#htapp .htapp-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#htapp .htapp-rel-name { font-family: var(--font-mono, monospace); font-size: 13px; font-weight: 700; color: var(--text); }
+#htapp .htapp-rel-desc { font-family: var(--font-mono, monospace); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#htapp .htapp-faq { margin-top: 48px; }
+#htapp .htapp-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#htapp .htapp-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono, monospace); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#htapp .htapp-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#htapp .htapp-faq-item[open] summary::before { content: "\25BE  "; }
+#htapp .htapp-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono, monospace); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+/* hovers - R5 gate */
+@media (hover: hover) {
+  #htapp .htapp-rel-card:hover { border-color: var(--green-border); }
+  #htapp .htapp-rel-card:hover .htapp-rel-name { color: var(--green); }
+  #htapp .htapp-faq-item summary:hover { color: var(--green); }
+}
+/* v1.22.6 cross-browser audit: legacy iOS momentum hint */
+#htapp .preview { -webkit-overflow-scrolling: touch; }

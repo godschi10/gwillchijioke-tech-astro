@@ -1,0 +1,89 @@
+/* wp-config.php Generator + (SQLite + Hardening) - v1.19.82. Brand dark, scoped #wpc-app.
+   Classes prefixed wpc-. */
+#wpc-app { color-scheme: dark; --wpc-green: var(--green); --wpc-border: var(--green-border); }
+#wpc-app * { box-sizing: border-box; }
+
+#wpc-app .wpc-wrap { display: flex; flex-direction: column; gap: 14px; }
+#wpc-app .wpc-card { background: var(--surface); border: 1px solid var(--border-2); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+#wpc-app .wpc-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 820px) { #wpc-app .wpc-grid { grid-template-columns: 1fr 1fr; } }
+
+#wpc-app .wpc-sec { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+#wpc-app .wpc-sec .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+#wpc-app .wpc-sec h3 { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+#wpc-app .wpc-field { display: flex; flex-direction: column; gap: 5px; }
+#wpc-app .wpc-lbl { font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--dim); }
+#wpc-app .wpc-in, #wpc-app .wpc-in-chk { width: 100%; background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; color: var(--text); font: 400 13px/1.5 var(--font-mono); padding: 10px 12px; min-height: 44px; }
+#wpc-app textarea.wpc-in { resize: vertical; min-height: 76px; }
+#wpc-app .wpc-in:focus-visible { outline: 2px solid var(--green); }
+#wpc-app .wpc-in-chk { height: 20px; width: 20px; accent-color: var(--green); cursor: pointer; padding: 0; min-height: 20px; flex: 0 0 auto; }
+#wpc-app .wpc-pair { display: flex; flex-wrap: wrap; gap: 10px; }
+#wpc-app .wpc-pair .wpc-field { flex: 1 1 150px; }
+
+#wpc-app .wpc-chk { -webkit-user-select: none; user-select: none; display: inline-flex; align-items: center; gap: 9px; min-height: 40px; font-size: 12.5px; color: var(--muted); cursor: pointer; }
+#wpc-app .wpc-chk-grid { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+#wpc-app .wpc-btn { -webkit-user-select: none; user-select: none; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border-radius: 8px; cursor: pointer; font: 700 13px var(--font-mono); letter-spacing: .02em; white-space: nowrap; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border-2); }
+#wpc-app .wpc-btn.wpc-p { background: var(--green); color: #04160d; border-color: transparent; }
+#wpc-app .wpc-btn:active { transform: translateY(1px); }
+#wpc-app .wpc-btnrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+#wpc-app .wpc-outbox { display: flex; flex-direction: column; gap: 10px; }
+#wpc-app .wpc-out { background: var(--bg); border: 1px solid var(--border-2); border-radius: 8px; padding: 14px; max-height: 420px; overflow: auto; font: 400 12px/1.6 var(--font-mono); white-space: pre-wrap; word-break: break-word; }
+#wpc-app .wpc-out code { font: inherit; white-space: pre-wrap; word-break: break-all; color: var(--text); display: block; }
+#wpc-app .wpc-out .cmt { color: #5f7d68; }
+#wpc-app .wpc-out .kw { color: var(--green); font-weight: 600; }
+#wpc-app .wpc-outcap { display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--dim); }
+#wpc-app .wpc-outcap .line { flex: 1; height: 1px; background: var(--border-2); }
+
+#wpc-app .wpc-msg { display: none; border-radius: 8px; padding: 12px 14px; font-size: 13px; background: var(--surface); border: 1px solid var(--border-2); color: var(--muted); }
+#wpc-app .wpc-msg.err { display: block; border-color: rgba(255,92,92,.38); color: var(--red); }
+
+#wpc-app .wpc-privacy { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--green); padding: 6px 12px; border: 1px solid var(--green-border); border-radius: 8px; background: rgba(0,255,145,.05); flex: 1 1 auto; min-width: 0; max-width: 100%; }
+#wpc-app .wpc-privacy .pwg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+#wpc-app .wpc-privacy { white-space: normal; word-break: break-word; overflow-wrap: anywhere; line-height: 1.4; }
+
+@media (hover:hover) {
+  #wpc-app .wpc-btn:hover { border-color: var(--green-border); color: var(--text); }
+  #wpc-app .wpc-btn.wpc-p:hover { filter: brightness(1.07); color: #04160d; }
+}
+
+/* ══ v1.21.46 App #9 audit - dot fix + related grid + visible FAQ (6-point law) ══ */
+#wpc-app .wpc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+
+#wpc-app .wpc-related { margin-top: 48px; }
+#wpc-app .wpc-related-h, #wpc-app .wpc-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#wpc-app .wpc-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#wpc-app .wpc-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#wpc-app .wpc-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#wpc-app .wpc-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#wpc-app .wpc-faq { margin-top: 48px; }
+#wpc-app .wpc-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#wpc-app .wpc-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#wpc-app .wpc-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#wpc-app .wpc-faq-item[open] summary::before { content: "\25BE  "; }
+#wpc-app .wpc-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+@media (hover: hover) {
+  #wpc-app .wpc-rel-card:hover { border-color: var(--green-border); }
+  #wpc-app .wpc-rel-card:hover .wpc-rel-name { color: var(--green); }
+  #wpc-app .wpc-faq-item summary:hover { color: var(--green); }
+}
+/* v1.22.6 cross-browser audit: legacy iOS momentum hint */
+#wpc-app .wpc-out { -webkit-overflow-scrolling: touch; }

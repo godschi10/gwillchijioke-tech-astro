@@ -5,7 +5,7 @@
 // banners; scripts/sticky-ad.js promotes the matching one. Copying the creatives keeps the
 // slots faithful instead of collapsing them, and the same shell accepts new code at deploy.
 import adSlots from '../data/ad-slots.json';
-import { BASE } from '../lib/url';
+import { BASE_NS } from '../lib/url';
 
 interface Props {
   variant?: 'leaderboard' | 'before-footer' | 'menu' | 'sticky' | 'in-content' | 'sidebar';
@@ -13,7 +13,7 @@ interface Props {
 }
 const { variant = 'leaderboard', filled = false } = Astro.props;
 const templates = (adSlots as Record<string, { device: string; html: string }[]>)[variant] ?? [];
-const rendered = templates.map((t) => ({ device: t.device, html: t.html.replaceAll('%BASE%', BASE) }));
+const rendered = templates.map((t) => ({ device: t.device, html: t.html.replaceAll('%BASE%', BASE_NS) }));
 const classes = ['ad-slot', `ad-slot--${variant}`, filled ? 'ad-slot--filled' : ''].filter(Boolean).join(' ');
 ---
 

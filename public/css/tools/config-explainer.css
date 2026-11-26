@@ -1,0 +1,135 @@
+
+  /* Everything scoped under #cfx - this tool lives inside a WordPress theme that owns
+     :root, body, .card, .btn, etc. The theme's global style.css defines those, so a bare
+     class would leak. Every selector is prefixed. Base rules are NOT inside any
+     @media (hover:hover) - hovers only ADD affordance on top of base styles. */
+  #cfx{color-scheme:dark;--surface:#111318;--surface-2:#181c24;--border-2:#232a36;
+    --text:#e2e8f0;--muted:#8896aa;--dim:#7586a0;--green:#00ff91;--green-border:rgba(0,255,145,.22);
+    --red:#ff5c5c;--amber:#ffb86b;--cyan:#5cc8ff;
+    --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    font-family:var(--font-mono);font-size:13.5px;line-height:1.55;color:var(--text);
+    margin:0 auto;max-width:var(--content-w)}
+  #cfx *{box-sizing:border-box}
+  #cfx button,#cfx textarea,#cfx input,#cfx select{font-family:inherit}
+  #cfx [hidden]{display:none !important}
+
+  #cfx .cfx-wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+
+  #cfx .cfx-card{background:var(--surface);border:1px solid var(--border-2);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+  #cfx .cfx-sec{display:flex;align-items:center;gap:10px;margin:2px 0}
+  #cfx .cfx-sec .cfx-sdot{width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 auto}
+  #cfx .cfx-sec h2{margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--text)}
+  #cfx .cfx-sec .cfx-line{flex:1 1 auto;height:1px;background:var(--border-2)}
+  #cfx .cfx-sec .cfx-hint{font-size:10.5px;color:var(--dim)}
+
+  #cfx textarea,#cfx input[type=text],#cfx input[type=search]{
+    width:100%;background:#0d0d0d;border:1px solid var(--border-2);border-radius:8px;color:var(--text);
+    font:400 12.5px/1.55 var(--font-mono);padding:12px 14px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;tab-size:2}
+  #cfx textarea{min-height:200px;resize:vertical}
+  #cfx input:focus-visible,#cfx textarea:focus-visible,#cfx select:focus-visible{outline:2px solid var(--green)}
+  #cfx input::placeholder,#cfx textarea::placeholder{color:var(--dim)}
+
+  #cfx .cfx-btn{ -webkit-user-select: none; user-select: none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    flex:1 1 auto;min-height:44px;padding:0 18px;border-radius:8px;cursor:pointer;
+    font:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;white-space:nowrap;text-decoration:none;  color:var(--text);border:1px solid transparent}
+  #cfx .cfx-btn:active{transform:translateY(1px)}
+  #cfx .cfx-btn.cfx-primary{background:var(--green);color:#04160d}
+  #cfx .cfx-btn.cfx-ghost{background:var(--surface-2);color:var(--muted);border:1px solid var(--border-2)}
+  #cfx .cfx-btnrow{display:flex;flex-wrap:wrap;gap:10px}
+  #cfx .cfx-filelabel{flex:1 1 auto;min-height:44px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border-radius:8px;background:var(--surface-2);color:var(--muted);border:1px solid var(--border-2);
+    font:inherit;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #cfx .cfx-fileinput{display:none}
+  #cfx .cfx-filemsg{flex:1 1 auto;font-size:11.5px;color:var(--dim);min-width:0;overflow-wrap:anywhere}
+
+  #cfx .cfx-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  #cfx .cfx-typebadge{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--text);flex:1 1 auto;min-width:0}
+  #cfx .cfx-typebadge .cfx-b{font-weight:700;color:var(--green)}
+  #cfx .cfx-seg{display:inline-flex;border:1px solid var(--border-2);border-radius:8px;overflow:hidden}
+  #cfx .cfx-seg button{background:var(--surface-2);border:0;color:var(--muted);padding:10px 14px;min-height:44px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+  #cfx .cfx-seg button.cfx-on{background:var(--green);color:#04160d}
+  #cfx .cfx-search{flex:1 1 180px;min-width:0}
+  #cfx .cfx-search input{min-height:42px;padding:9px 12px}
+
+  /* summary + red flags */
+  #cfx .cfx-summary{display:flex;flex-direction:column;gap:8px}
+  #cfx .cfx-summary .cfx-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  #cfx .cfx-summary ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  #cfx .cfx-summary li{font-size:12.5px;color:var(--text)}
+  #cfx .cfx-summary li b{color:var(--green)}
+  #cfx .cfx-flags{display:flex;flex-direction:column;gap:6px}
+  #cfx .cfx-flags .cfx-flag{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--red);
+    border:1px solid rgba(255,92,92,.35);border-left-width:3px;border-radius:8px;padding:10px 12px;background:rgba(255,92,92,.05)}
+  #cfx .cfx-flag .cfx-fr{font-weight:700;flex:0 0 auto}
+  #cfx .cfx-ok{margin:0;font-size:12px;color:var(--green)}
+
+  /* analysis list, grouped */
+  #cfx .cfx-group{display:flex;flex-direction:column;gap:8px}
+  #cfx .cfx-group .cfx-ghead{display:flex;align-items:baseline;gap:10px;margin-top:6px}
+  #cfx .cfx-group .cfx-gname{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  #cfx .cfx-group .cfx-gcount{font-size:11px;color:var(--muted)}
+  #cfx .cfx-group .cfx-gline{flex:1 1 auto;height:1px;background:var(--border-2)}
+  #cfx details.cfx-item{background:var(--surface-2);border:1px solid var(--border-2);border-radius:8px;border-left-width:3px}
+  #cfx details.cfx-item.cfx-sev-sec{border-left-color:var(--red)}
+  #cfx details.cfx-item.cfx-sev-beh{border-left-color:var(--amber)}
+  #cfx details.cfx-item.cfx-sev-cos{border-left-color:var(--muted)}
+  #cfx details.cfx-item summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;padding:10px 12px;min-height:44px}
+  #cfx details.cfx-item summary::-webkit-details-marker{display:none}
+  #cfx .cfx-imp{flex:0 0 auto;font-size:12px}
+  #cfx .cfx-code{flex:1 1 220px;min-width:0;font-size:12px;color:var(--text);word-break:break-word;overflow-wrap:anywhere;
+    background:rgba(0,0,0,.25);border-radius:5px;padding:2px 7px}
+  #cfx .cfx-code .cfx-k{color:var(--green);font-weight:700}
+  #cfx .cfx-code .cfx-f{color:var(--cyan);font-weight:700}
+  #cfx .cfx-body{padding:0 12px 12px;display:flex;flex-direction:column;gap:6px}
+  #cfx .cfx-what{font-size:12.5px;color:var(--text)}
+  #cfx .cfx-why{font-size:11.5px;color:var(--muted)}
+  
+  #cfx .cfx-note{font-size:12px;color:var(--muted);background:var(--surface-2);border:1px solid var(--border-2);border-radius:8px;padding:12px 14px;line-height:1.5}
+  #cfx .cfx-note b{color:var(--green)}
+
+  #cfx .cfx-foot{font-size:11px;color:var(--dim);text-align:center}
+  
+
+  /* hover ADD affordance only; base styles are all above, outside any hover query */
+  @media (hover:hover){
+    #cfx .cfx-btn.cfx-ghost:hover{border-color:var(--green-border);color:var(--text)}
+    #cfx .cfx-btn.cfx-primary:hover{filter:brightness(1.07)}
+    #cfx .cfx-filelabel:hover{border-color:var(--green-border);color:var(--text)}
+    #cfx details.cfx-item summary:hover{background:rgba(0,255,145,.04)}
+    #cfx .cfx-seg button:hover{color:var(--text)}
+  }
+
+/* ══ v1.21.58 App #13 audit - related grid + visible FAQ (6-point law) ══ */
+#cfx .cfx-related { margin-top: 48px; }
+#cfx .cfx-related-h, #cfx .cfx-faq-h {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); margin: 0 0 20px;
+}
+#cfx .cfx-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+#cfx .cfx-rel-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 20px;
+  background: var(--surface); border: 1px solid var(--border-2); border-radius: 10px; text-decoration: none;
+}
+#cfx .cfx-rel-name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text); }
+#cfx .cfx-rel-desc { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+#cfx .cfx-faq { margin-top: 48px; }
+#cfx .cfx-faq-item {
+  border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface);
+  margin-bottom: 16px; overflow: hidden;
+}
+#cfx .cfx-faq-item summary {
+  cursor: pointer; list-style: none; padding: 16px 18px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text);
+}
+#cfx .cfx-faq-item summary::before { content: "\25B8  "; color: var(--green); }
+#cfx .cfx-faq-item[open] summary::before { content: "\25BE  "; }
+#cfx .cfx-faq-item p {
+  margin: 0; padding: 0 18px 16px 32px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted);
+}
+
+@media (hover: hover) {
+  #cfx .cfx-rel-card:hover { border-color: var(--green-border); }
+  #cfx .cfx-rel-card:hover .cfx-rel-name { color: var(--green); }
+  #cfx .cfx-faq-item summary:hover { color: var(--green); }
+}

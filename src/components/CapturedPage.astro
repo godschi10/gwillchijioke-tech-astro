@@ -6,13 +6,13 @@
 import Base from '../layouts/Base.astro';
 import AdSticky from '../components/AdSticky.astro';
 import AdSlot from '../components/AdSlot.astro';
-import { BASE } from '../lib/url';
+import { BASE_NS } from '../lib/url';
 
 interface Props {
   data: any;
 }
 const { data } = Astro.props;
-const f = (html: string) => (html || '').replaceAll('%BASE%', BASE);
+const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
 // Some captures already end with their own before-footer ad, some don't (measured: adding
 // it unconditionally gave 2× on category/author and 0 on all-posts/tag). Render it only
 // when the captured body lacks one.

@@ -1,9 +1,9 @@
 ---
 // Mobile bottom tab bar — markup from the LIVE capture (section 35 of the theme).
 // Fixed to the viewport bottom on phones; the notify pill is the same push hold as the bell.
-import { BASE } from '../lib/url';
+import { BASE_NS } from '../lib/url';
 import { MOBILE_TABBAR_HTML } from '../data/mobile-tabbar-html';
-const html = MOBILE_TABBAR_HTML.replaceAll('%BASE%', BASE);
+const html = MOBILE_TABBAR_HTML.replaceAll('%BASE%', BASE_NS);
 ---
 
 <Fragment set:html={html} />

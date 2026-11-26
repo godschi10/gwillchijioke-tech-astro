@@ -13,7 +13,7 @@
 import Base from '../layouts/Base.astro';
 import AdSlot from '../components/AdSlot.astro';
 import AdSticky from '../components/AdSticky.astro';
-import { BASE } from '../lib/url';
+import { BASE_NS } from '../lib/url';
 
 // getStaticPaths is hoisted OUT of the component scope, so the glob must live inside it.
 export function getStaticPaths() {
@@ -29,7 +29,7 @@ const { post } = Astro.props as any;
 const { title, fragments, articleClass, description, canonical, ogImage } = post;
 
 // Every fragment carries %BASE% placeholders; substitute once here.
-const f = (html: string) => (html || '').replaceAll('%BASE%', BASE);
+const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
 ---
 
 <Base

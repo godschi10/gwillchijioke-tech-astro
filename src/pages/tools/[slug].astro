@@ -1,0 +1,32 @@
+---
+// Tool page — captured markup + the theme's own per-tool CSS and JS, verbatim.
+//
+// Every tool under /tools/<slug>/ is a self-contained client-side panel (.gt-tool). The
+// theme enqueues assets/css/tools-<slug>.css and assets/js/tools-<slug>.js; gen-tools.py
+// copies both byte-for-byte, so no tool logic is re-implemented here.
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import AdSticky from '../../components/AdSticky.astro';
+import { BASE_NS, url } from '../../lib/url';
+
+export function getStaticPaths() {
+  const mods = import.meta.glob('../../data/tools/*.json', { eager: true });
+  return Object.values(mods).map((m: any) => {
+    const d = m.default ?? m;
+    return { params: { slug: d.slug }, props: { data: d } };
+  });
+}
+
+const { data } = Astro.props as any;
+const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
+const cssHref = url(`/css/tools/${data.slug}.css`);
+const jsSrc = url(`/js/tools/${data.slug}.js`);
+---
+
+<Base title={data.title} description={data.description || undefined} canonical={data.canonical || undefined}>
+  <link slot="head" rel="stylesheet" href={cssHref} />
+  <Fragment set:html={f(data.body)} />
+  <AdSlot variant="before-footer" />
+  <AdSticky />
+  <script is:inline defer src={jsSrc}></script>
+</Base>

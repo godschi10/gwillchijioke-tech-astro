@@ -1,0 +1,351 @@
+/* JSON Formatter - tool-specific styles */
+
+/* ── Field + textarea ───────────────────────────────────────────────── */
+.gt-field { margin-bottom: var(--sp-4); }
+.gt-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: var(--sp-2);
+}
+.gt-field textarea {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: var(--sp-4);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  resize: vertical;
+  transition: border-color .15s;
+  tab-size: 2;
+}
+.gt-field textarea:focus {
+  outline: none;
+  border-color: var(--green-border);
+  box-shadow: 0 0 0 1px var(--green-border);
+}
+.gt-field textarea::placeholder { color: var(--dim); opacity: .55; }
+
+/* ── Toolbar ────────────────────────────────────────────────────────── */
+.gt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: center;
+  margin-bottom: var(--sp-4);
+}
+.gt-toolbar select {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.gt-toolbar select:focus { outline: none; border-color: var(--green-border); }
+
+/* ── Buttons ────────────────────────────────────────────────────────── */
+.gt-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+}
+@media (hover: hover) {
+  .gt-btn:hover { border-color: var(--mid); color: var(--green); }
+}
+.gt-btn--primary {
+  border-color: var(--green-border);
+  background: var(--green-dim);
+  color: var(--green);
+}
+@media (hover: hover) {
+  .gt-btn--primary:hover { background: var(--green); color: #08160f; }
+}
+.gt-btn--ghost { color: var(--dim); }
+@media (hover: hover) {
+  .gt-btn--ghost:hover { color: var(--mid); border-color: var(--border); }
+}
+.gt-btn:active { transform: scale(.97); }
+
+/* ── Error ──────────────────────────────────────────────────────────── */
+.gt-error {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, .06);
+  border: 1px solid rgba(255, 107, 107, .22);
+  border-radius: var(--r-sm);
+  padding: 10px 16px;
+  margin-bottom: var(--sp-4);
+}
+
+/* ── Stats ──────────────────────────────────────────────────────────── */
+.gt-stats {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: var(--sp-2);
+  text-align: right;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .gt-toolbar { gap: var(--sp-2); }
+  /* Buttons keep full text and WRAP onto new rows - never flex-crush them
+     into truncated slivers ("For / Val / Mine"). Natural size, nowrap up top. */
+  .gt-btn {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 0 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .gt-toolbar select { flex: 0 0 auto; }
+  .gt-field textarea { font-size: 12px; padding: 12px; }
+}
+
+/* ══ v1.21.3 audit additions - tree / highlight / warn / related / FAQ ══ */
+
+/* syntax-highlight view: overlays the output area; the textarea is
+   visually hidden but stays in the DOM (focus + screen-reader access). */
+.gt-outwrap { position: relative; }
+.gt-outfield { margin-bottom: var(--sp-4); }
+.gt-hl { -webkit-user-select: none; user-select: none;
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: var(--sp-4);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;  }
+.gt-hidden-ta { color: transparent !important; caret-color: var(--text); }
+.tk-k { color: var(--cyan, #5cc8ff); }
+.tk-s { color: var(--green); }
+.tk-n { color: var(--amber, #ffb86b); }
+.tk-b { color: #b48cff; }
+.tk-nl { color: var(--mid, #8896aa); }
+
+/* bigint warning */
+.gt-warn {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--amber, #ffb86b);
+  background: rgba(255, 184, 107, .06);
+  border: 1px solid rgba(255, 184, 107, .22);
+  border-radius: var(--r-sm);
+  padding: 10px 16px;
+  margin: 0 0 var(--sp-4);
+}
+
+/* drag-over state on the input */
+.gt-field textarea.gt-drag {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+.gt-filemsg {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  margin: var(--sp-1) 0 0;
+}
+
+/* tree view */
+.gt-treefield { margin-top: var(--sp-2); }
+.gt-treelabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: var(--sp-2);
+}
+.gt-tree {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  padding: var(--sp-3) var(--sp-4);
+  max-height: 420px;
+  overflow: auto;
+}
+.gt-node { padding-left: 4px; }
+.gt-node details { margin: 2px 0; }
+.gt-node summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--mid);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.gt-node summary::before { content: "▸ "; color: var(--green); }
+.gt-node details[open] > summary::before { content: "▾ "; }
+.gt-node summary:hover { background: var(--surface-2, var(--surface)); }
+.gt-node details > .gt-node { margin-left: 18px; border-left: 1px solid var(--border-2); padding-left: 10px; }
+.gt-leaf { padding: 2px 6px; color: var(--mid); }
+.gt-k { color: var(--cyan, #5cc8ff); }
+.gt-v.gt-string { color: var(--green); }
+.gt-v.gt-number { color: var(--amber, #ffb86b); }
+.gt-v.gt-boolean { color: #b48cff; }
+.gt-v.gt-null { color: var(--dim); }
+.gt-tt { color: var(--dim); font-size: 11px; }
+.gt-cc { color: var(--dim); font-size: 11px; }
+
+/* highlight checkbox row */
+.gt-chk { -webkit-user-select: none; user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--mid);
+  min-height: 44px;
+  cursor: pointer; }
+.gt-chk input { accent-color: var(--green); width: 16px; height: 16px; }
+
+/* related tools grid */
+/* ══ v1.21.6 spacing fix (King: "Related tools and faq contents are too close
+   to each other… space them properly") - generous section rhythm like the
+   speed-test page: clear air between tool output, related grid and FAQ. */
+.gt-related { margin-top: 48px; }
+.gt-related-h, .gt-faq-h {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 var(--sp-5);
+}
+.gt-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--sp-4);
+}
+.gt-rel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: border-color .15s;
+}
+.gt-rel-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.gt-rel-desc {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--dim);
+}
+@media (hover: hover) {
+  .gt-rel-card:hover { border-color: var(--green-border); }
+  .gt-rel-card:hover .gt-rel-name { color: var(--green); }
+}
+
+/* visible FAQ (mirrors FAQPage schema) */
+.gt-faq { margin-top: 48px; }
+.gt-faq-item {
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  margin-bottom: var(--sp-4);
+  overflow: hidden;
+}
+.gt-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.gt-faq-item summary::before { content: "▸ "; color: var(--green); }
+.gt-faq-item[open] summary::before { content: "▾ "; }
+@media (hover: hover) {
+  .gt-faq-item summary:hover { color: var(--green); }
+}
+.gt-faq-item p {
+  margin: 0;
+  padding: 0 18px 16px 32px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--mid);
+}
+/* ══ v1.21.16 terminal-card rebuild - matches the 301/commits design language ══ */
+.gt-tool { display: flex; flex-direction: column; gap: 16px; }
+.gt-card {
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gt-sec { display: flex; align-items: center; gap: 10px; margin: 2px 0; }
+.gt-sec .gt-sdot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex: 0 0 auto; }
+.gt-sec h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--text); font-family: var(--font-mono); }
+.gt-sec .gt-line { flex: 1 1 auto; height: 1px; background: var(--border-2); }
+.gt-sronly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gt-inrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 2px; }
+.gt-outactions { margin: 0; }
+.gt-faq-item { margin-bottom: 16px; }
+
+
+/* v1.21.21: hover neutralizer gated (R5 law) */
+@media (hover: hover) {
+  .gt-card:hover { transform: none; background: var(--surface); border-color: var(--border-2); }
+}
+
+/* ══ v1.21.52 - detailed two-row Input/Output stats panel (King's design) ══ */
+.gt-stats2 { display: flex; flex-direction: column; gap: 4px; margin: 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.5; }
+.gt-stat-row { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.gt-stat-lbl {
+  flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--green); border: 1px solid var(--green-border); border-radius: 4px; padding: 2px 7px;
+  background: rgba(0,255,145,.05);
+}
+.gt-stat-val { flex: 1 1 auto; color: var(--muted); overflow-wrap: anywhere; }
+/* v1.22.6 cross-browser audit: iOS input-zoom floor override + reduced-motion guard */
+@media (max-width: 640px) { .gt-field textarea { font-size: 16px; } }
+/* v1.22.6 cross-browser audit: reduced-motion guard (house pattern) */
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

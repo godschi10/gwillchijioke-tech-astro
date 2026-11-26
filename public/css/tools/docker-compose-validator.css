@@ -1,0 +1,103 @@
+
+#cmp {
+    color-scheme:dark;
+    --bg:#0d0d0d; --surface:#111318; --surface-2:#181c24; --border-2:#232a36;
+    --text:#e2e8f0; --muted:#8896aa; --dim:#7586a0;
+    --green:#00ff91; --green-border:rgba(0,255,145,.22);
+    --amber:#ffb86b; --red:#ff5c5c; --cyan:#5cc8ff;
+    --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    /* BASE FONT - the tool must declare its own typography, not inherit the theme's. */
+    font-family:var(--font-mono);font-size:13.5px;line-height:1.55;color:var(--text);
+    -webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  }
+#cmp * {box-sizing:border-box}
+#cmp [hidden] {display:none !important}
+#cmp button,#cmp select,#cmp textarea,#cmp input {font-family:inherit}
+#cmp .wrap {max-width:940px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+#cmp header {display:flex;flex-direction:column;gap:5px}
+#cmp h1 {margin:0;font-size:19px;font-weight:700;letter-spacing:.04em}
+#cmp h1 .cur {color:var(--green);animation:docker-blink 1.15s steps(2,start) infinite}
+  @keyframes docker-blink{to{visibility:hidden}}
+#cmp .dc-tag {margin:0;font-size:12.5px;color:var(--dim)}
+#cmp .dc-privacy {display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:11.5px;color:var(--green);
+    padding:6px 12px;border:1px solid var(--green-border);border-radius:8px;background:rgba(0,255,145,.05);flex:0 0 auto}
+#cmp .dc-privacy .dc-dot {width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto}
+
+#cmp .dc-card {background:var(--surface);border:1px solid var(--border-2);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+#cmp .dc-sec {display:flex;align-items:center;gap:10px;margin:4px 0 0}
+#cmp .dc-sec .ic {width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 auto}
+#cmp .dc-sec h2 {margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--text)}
+#cmp .dc-sec .line {flex:1 1 auto;height:1px;background:var(--border-2)}
+#cmp .dc-sec .dc-hint {font-size:10.5px;color:var(--dim)}
+
+  /* preset buttons */
+#cmp .dc-presets {display:flex;flex-wrap:wrap;gap:8px}
+#cmp .dc-pbtn { -webkit-user-select: none; user-select: none;}
+#cmp .dc-pbtn .ic {color:var(--green);flex:0 0 auto;width:14px;height:14px;border:2px solid var(--green);border-radius:3px;display:inline-block;position:relative;box-sizing:border-box}
+#cmp .dc-pbtn .ic::after{content:"";position:absolute;left:2px;right:2px;top:2px;bottom:2px;border:1px solid var(--green);border-radius:1px;opacity:.55}
+#cmp .dc-pbtn {border:1px solid var(--border-2);background:var(--surface-2);color:var(--muted)}
+#cmp .dc-pbtn:active{border-color:var(--green-border)}
+#cmp .dc-pbtn:active {transform:translateY(1px)}
+
+#cmp textarea {width:100%;min-height:260px;resize:vertical;padding:12px 14px;
+    background:var(--bg);border:1px solid var(--border-2);border-radius:8px;
+    color:var(--text);font:400 12.5px/1.55 var(--font-mono);white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;tab-size:2}
+#cmp textarea:focus-visible {outline:2px solid var(--green)}
+#cmp textarea::placeholder {color:var(--dim)}
+#cmp #fileInput {display:none}
+#cmp .dc-edhead {display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+#cmp .dc-edhead .dc-stat {font-size:11px;color:var(--muted);flex:1 1 auto}
+
+#cmp .dc-btn { -webkit-user-select: none; user-select: none;}
+#cmp .dc-btn:active {transform:translateY(1px)}
+#cmp .dc-btn.primary {background:var(--green);color:#04160d;border:1px solid transparent}
+#cmp .dc-btn.ghost {background:var(--surface-2);color:var(--muted);border:1px solid var(--border-2)}
+#cmp .dc-actions {display:flex;flex-wrap:wrap;gap:10px}
+#cmp .dc-actions .dc-btn {flex:1 1 auto}
+
+  /* report */
+#cmp .dc-rep {display:flex;flex-direction:column;gap:8px;max-height:460px;overflow:auto}
+#cmp .dc-iss {display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border-2);border-radius:8px;padding:12px 14px;border-left-width:3px}
+#cmp .dc-iss.err {border-left-color:var(--red)}
+#cmp .dc-iss.warn {border-left-color:var(--amber)}
+#cmp .dc-iss.info {border-left-color:var(--muted)}
+#cmp .dc-iss .dc-dot {flex:0 0 auto;width:10px;height:10px;border-radius:50%;margin-top:6px}
+#cmp .dc-iss.err .dc-dot {background:var(--red)}
+#cmp .dc-iss.warn .dc-dot {background:var(--amber)}
+#cmp .dc-iss.info .dc-dot {background:var(--muted)}
+#cmp .dc-iss .bod {flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:3px}
+#cmp .dc-iss .tx {font-size:12.5px;color:var(--text);line-height:1.45}
+#cmp .dc-iss .ln {font-size:10.5px;color:var(--dim);letter-spacing:.06em}
+#cmp .dc-iss .fx {font-size:11.5px;color:var(--cyan);line-height:1.45}
+#cmp .dc-sumline {display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
+#cmp .dc-sumline .dc-bdg {font-size:12px;font-weight:700}
+#cmp .dc-sumline .dc-bdg.err {color:var(--red)}
+#cmp .dc-sumline .dc-bdg.warn {color:var(--amber)}
+#cmp .dc-sumline .dc-bdg.info {color:var(--muted)}
+#cmp .dc-sumline .dc-clr {font-size:12px;color:var(--green)}
+#cmp #fileLabel:focus-visible {outline:2px solid var(--green);outline-offset:2px}
+#cmp .dc-related, #cmp .dc-faq {margin-top:20px}
+#cmp .dc-related-h, #cmp .dc-faq-h {font-family:var(--font-mono);font-size:14px;font-weight:700;color:var(--text);margin:0 0 16px}
+#cmp .dc-related-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+#cmp .dc-rel-card {display:flex;flex-direction:column;gap:7px;padding:20px;background:var(--surface);border:1px solid var(--border-2);border-radius:10px;text-decoration:none}
+#cmp .dc-rel-name {font-size:13px;font-weight:700;color:var(--text)}
+#cmp .dc-rel-desc {font-size:11.5px;line-height:1.5;color:var(--muted)}
+#cmp .dc-faq-item {border:1px solid var(--border-2);border-radius:10px;background:var(--surface);margin-bottom:16px;overflow:hidden}
+#cmp .dc-faq-item summary {cursor:pointer;list-style:none;padding:16px 18px;font-size:13px;font-weight:700;color:var(--text)}
+#cmp .dc-faq-item summary::before {content:"\25B8  ";color:var(--green)}
+#cmp .dc-faq-item[open] summary::before {content:"\25BE  "}
+#cmp .dc-faq-item p {margin:0;padding:0 18px 16px 32px;font-size:12.5px;line-height:1.7;color:var(--muted)}
+#cmp .dc-honest {font-size:11.5px;color:var(--muted);line-height:1.5;background:var(--surface-2);border:1px solid var(--border-2);border-radius:8px;padding:12px 14px}
+#cmp .dc-honest b {color:var(--green)}
+
+#cmp .dc-foot {font-size:11px;color:var(--dim);text-align:center}
+@media (hover: hover) {
+	#cmp .dc-btn.ghost:hover {border-color:var(--green-border);color:var(--text)}
+	#cmp .dc-btn.primary:hover {filter:brightness(1.07)}
+	#cmp .dc-pbtn:hover {border-color:var(--green-border)}
+	#cmp .dc-rel-card:hover {border-color:var(--green-border)}
+	#cmp .dc-rel-card:hover .dc-rel-name {color:var(--green)}
+	#cmp .dc-faq-item summary:hover {color:var(--green)}
+}
+  @media (prefers-reduced-motion:reduce){ #cmp h1 .cur{animation:none} }/* v1.22.6 cross-browser audit: legacy iOS momentum hint */
+#cmp .dc-rep { -webkit-overflow-scrolling: touch; }
