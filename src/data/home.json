@@ -1,0 +1,587 @@
+{
+  "hero": [
+    {
+      "href": "https://gwillchijioke.qzz.io/gutenberg-elements-showcase/",
+      "title": "Gutenberg Elements Showcase — Every Block Styled",
+      "deck": "Welcome to the Gutenberg element showcase — every block on this page is styled by the…",
+      "cat": "Gutenberg",
+      "catHref": "https://gwillchijioke.qzz.io/category/gutenberg/",
+      "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-1024x683.jpg",
+      "style": "--c:#2dd4bf;--c-dim:rgba(45,212,191,.10);--c-border:rgba(45,212,191,.22);--c-grad:rgba(45,212,191,.16)",
+      "author": "G-will Chijioke",
+      "read": "2 min read",
+      "dateISO": "2026-08-01T22:47:55+00:00",
+      "dateText": "August 1, 2026"
+    },
+    {
+      "href": "https://gwillchijioke.qzz.io/cloudflare-worker-ai-a-working-bridge-for-openai-compatible-clients/",
+      "title": "Cloudflare Worker AI: A Working Bridge for OpenAI-Compatible Clients",
+      "deck": "Cloudflare's REST endpoint isn't OpenAI-compatible — here's a 50-line bridge worker that translates Hermes' chat completions…",
+      "cat": "Web-Dev",
+      "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+      "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-1024x576.jpg",
+      "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+      "author": "G-will Chijioke",
+      "read": "6 min read",
+      "dateISO": "2026-08-10T16:32:06+00:00",
+      "dateText": "August 10, 2026"
+    },
+    {
+      "href": "https://gwillchijioke.qzz.io/image-showcase-testing-images-galleries-and-lightbox-%f0%9f%93%b8/",
+      "title": "Image Showcase: Testing Images, Galleries and Lightbox 📸",
+      "deck": "Images make technical content easier to follow. Here’s how different image layouts look on this theme…",
+      "cat": "Android Tutorials",
+      "catHref": "https://gwillchijioke.qzz.io/category/android/android-tutorials/",
+      "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-1024x576.jpg",
+      "style": "--c:#4ade80;--c-dim:rgba(74,222,128,.10);--c-border:rgba(74,222,128,.22);--c-grad:rgba(74,222,128,.16)",
+      "author": "G-will Chijioke",
+      "read": "2 min read",
+      "dateISO": "2026-07-30T14:00:16+00:00",
+      "dateText": "July 30, 2026"
+    },
+    {
+      "href": "https://gwillchijioke.qzz.io/redis-object-caching-cheap-vps/",
+      "title": "Redis object caching on a cheap VPS",
+      "deck": "Settings that hold under load – the exact Redis config running on this site. Object caching…",
+      "cat": "Software",
+      "catHref": "https://gwillchijioke.qzz.io/category/software/",
+      "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-1024x576.jpg",
+      "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+      "author": "G-will Chijioke",
+      "read": "1 min read",
+      "dateISO": "2026-07-27T09:14:38+00:00",
+      "dateText": "July 27, 2026"
+    }
+  ],
+  "sections": [
+    {
+      "label": ">_ /web-dev",
+      "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+      "viewAll": {
+        "href": "https://gwillchijioke.qzz.io/category/web-dev/",
+        "label": "View all →"
+      },
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/cloudflare-worker-ai-a-working-bridge-for-openai-compatible-clients/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "Cloudflare Worker AI: A Working Bridge for OpenAI-Compatible Clients",
+          "excerpt": "Cloudflare's REST endpoint isn't OpenAI-compatible — here's a 50-line bridge worker that translates Hermes' chat completions into env.AI.run() calls. Full…",
+          "badge": "Web-Dev",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai.jpg 1200w",
+          "mediaClass": "cat-tint card-media-relative has-img",
+          "lead": true,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "G-will Chijioke",
+          "read": "6 min read",
+          "dateISO": "",
+          "dateText": "August 10, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/kotlin-coroutines-from-beginner-to-production-%f0%9f%8c%90/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "Kotlin Coroutines: From Beginner to Production 🌐",
+          "excerpt": "",
+          "badge": "Web-Dev",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-kotlin-coroutines-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-kotlin-coroutines-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-kotlin-coroutines-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-kotlin-coroutines-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-kotlin-coroutines.jpg 1200w",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-07-21T12:18:35+00:00",
+          "dateText": "July 21, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/understanding-androids-new-storage-access-framework-%f0%9f%8e%a8/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "Understanding Android’s New Storage Access Framework 🎨",
+          "excerpt": "",
+          "badge": "Web-Dev",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-06-30T12:18:35+00:00",
+          "dateText": "June 30, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/material-you-dynamic-themes-deep-dive-%f0%9f%93%a6/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "Material You Dynamic Themes Deep Dive 📦",
+          "excerpt": "",
+          "badge": "Web-Dev",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-06-09T12:18:35+00:00",
+          "dateText": "June 9, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/the-complete-guide-to-webgpu-in-2026-%f0%9f%93%8a/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "The Complete Guide to WebGPU in 2026 📊",
+          "excerpt": "",
+          "badge": "Web-Dev",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-05-18T12:18:35+00:00",
+          "dateText": "May 18, 2026"
+        }
+      ],
+      "filters": []
+    },
+    {
+      "label": ">_ /software",
+      "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+      "viewAll": {
+        "href": "https://gwillchijioke.qzz.io/category/software/",
+        "label": "View all →"
+      },
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/redis-object-caching-cheap-vps/",
+          "catHref": "https://gwillchijioke.qzz.io/category/software/",
+          "title": "Redis object caching on a cheap VPS",
+          "excerpt": "Settings that hold under load – the exact Redis config running on this site. Object caching turned a 2 VPS…",
+          "badge": "Software",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps.jpg 1200w",
+          "mediaClass": "cat-tint card-media-relative has-img",
+          "lead": true,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "author": "G-will Chijioke",
+          "read": "1 min read",
+          "dateISO": "",
+          "dateText": "July 27, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/jetpack-compose-vs-flutter-a-2026-comparison-%f0%9f%90%a7/",
+          "catHref": "https://gwillchijioke.qzz.io/category/software/",
+          "title": "Jetpack Compose vs Flutter: A 2026 Comparison 🐧",
+          "excerpt": "",
+          "badge": "Software",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-07-16T12:18:35+00:00",
+          "dateText": "July 16, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/battery-optimization-what-actually-works-in-2026-%f0%9f%90%b3/",
+          "catHref": "https://gwillchijioke.qzz.io/category/software/",
+          "title": "Battery Optimization: What Actually Works in 2026 🐳",
+          "excerpt": "",
+          "badge": "Software",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-06-22T12:18:35+00:00",
+          "dateText": "June 22, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/building-a-modern-rest-api-with-php-8-4-attributes-%f0%9f%93%a1/",
+          "catHref": "https://gwillchijioke.qzz.io/category/software/",
+          "title": "Building a Modern REST API With PHP 8.4 Attributes 📡",
+          "excerpt": "",
+          "badge": "Software",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-06-01T12:18:35+00:00",
+          "dateText": "June 1, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/webassembly-when-to-use-it-when-to-skip-it-%f0%9f%97%84%ef%b8%8f/",
+          "catHref": "https://gwillchijioke.qzz.io/category/software/",
+          "title": "WebAssembly: When to Use It, When to Skip It 🗄️",
+          "excerpt": "",
+          "badge": "Software",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-05-12T12:18:35+00:00",
+          "dateText": "May 12, 2026"
+        }
+      ],
+      "filters": []
+    },
+    {
+      "label": ">_ /android",
+      "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+      "viewAll": {
+        "href": "https://gwillchijioke.qzz.io/category/android/",
+        "label": "View all →"
+      },
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/image-showcase-testing-images-galleries-and-lightbox-%f0%9f%93%b8/",
+          "catHref": "https://gwillchijioke.qzz.io/category/android/",
+          "title": "Image Showcase: Testing Images, Galleries and Lightbox 📸",
+          "excerpt": "Images make technical content easier to follow. Here’s how different image layouts look on this theme — single images, full-width,…",
+          "badge": "Android",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-redis-vps.jpg 1200w",
+          "mediaClass": "cat-tint card-media-relative has-img",
+          "lead": true,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "author": "G-will Chijioke",
+          "read": "2 min read",
+          "dateISO": "",
+          "dateText": "July 30, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/why-android-16s-private-space-changes-everything-%f0%9f%93%b1/",
+          "catHref": "https://gwillchijioke.qzz.io/category/android/",
+          "title": "Why Android 16’s Private Space Changes Everything 📱",
+          "excerpt": "",
+          "badge": "Android",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-android-private-space-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-android-private-space-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-android-private-space-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-android-private-space-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-android-private-space.jpg 1200w",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-07-28T12:18:35+00:00",
+          "dateText": "July 28, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/turning-off-5g-standalone/",
+          "catHref": "https://gwillchijioke.qzz.io/category/android/",
+          "title": "Turning off 5G standalone fixed my signal drops",
+          "excerpt": "",
+          "badge": "Android",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-07-27T09:14:29+00:00",
+          "dateText": "July 27, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/android-15-permission-auto-reset/",
+          "catHref": "https://gwillchijioke.qzz.io/category/android/",
+          "title": "Android 15 permission auto-reset breaking 8 apps",
+          "excerpt": "",
+          "badge": "Android",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-07-27T09:14:14+00:00",
+          "dateText": "July 27, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/how-i-cut-my-android-app-apk-size-by-60-%e2%9a%a1/",
+          "catHref": "https://gwillchijioke.qzz.io/category/android/",
+          "title": "How I Cut My Android App APK Size by 60% ⚡",
+          "excerpt": "",
+          "badge": "Android",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "author": "3 min",
+          "read": "",
+          "dateISO": "2026-07-09T12:18:35+00:00",
+          "dateText": "July 9, 2026"
+        }
+      ],
+      "filters": []
+    },
+    {
+      "label": ">_ /gutenberg",
+      "style": "--c:#2dd4bf;--c-dim:rgba(45,212,191,.10);--c-border:rgba(45,212,191,.22);--c-grad:rgba(45,212,191,.16)",
+      "viewAll": {
+        "href": "https://gwillchijioke.qzz.io/category/gutenberg/",
+        "label": "View all →"
+      },
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/gutenberg-elements-showcase/",
+          "catHref": "https://gwillchijioke.qzz.io/category/gutenberg/",
+          "title": "Gutenberg Elements Showcase — Every Block Styled",
+          "excerpt": "Welcome to the Gutenberg element showcase — every block on this page is styled by the theme’s own CSS (zero…",
+          "badge": "Gutenberg",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-300x200.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-300x200.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-1024x683.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-768x512.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board-1013x675.jpg 1013w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/circuit-board.jpg 1200w",
+          "mediaClass": "cat-tint card-media-relative has-img",
+          "lead": true,
+          "style": "--c:#2dd4bf;--c-dim:rgba(45,212,191,.10);--c-border:rgba(45,212,191,.22);--c-grad:rgba(45,212,191,.16)",
+          "author": "G-will Chijioke",
+          "read": "2 min read",
+          "dateISO": "",
+          "dateText": "August 1, 2026"
+        }
+      ],
+      "filters": []
+    },
+    {
+      "label": ">_ /ai",
+      "style": "--c:#34d399;--c-dim:rgba(52,211,153,.10);--c-border:rgba(52,211,153,.22);--c-grad:rgba(52,211,153,.16)",
+      "viewAll": {
+        "href": "https://gwillchijioke.qzz.io/category/ai/",
+        "label": "View all →"
+      },
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/ai-post-1/",
+          "catHref": "https://gwillchijioke.qzz.io/category/ai/",
+          "title": "AI Post 1",
+          "excerpt": "proot-distro login debianYour skills seems to be bloated and it’s eating up context window real fast, any bloats that needs…",
+          "badge": "AI",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-300x200.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-300x200.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-1024x683.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-768x512.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-1013x675.jpg 1013w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor.jpg 1200w",
+          "mediaClass": "cat-tint card-media-relative has-img",
+          "lead": true,
+          "style": "--c:#34d399;--c-dim:rgba(52,211,153,.10);--c-border:rgba(52,211,153,.22);--c-grad:rgba(52,211,153,.16)",
+          "author": "G-will Chijioke",
+          "read": "1 min read",
+          "dateISO": "",
+          "dateText": "August 24, 2026"
+        }
+      ],
+      "filters": []
+    },
+    {
+      "label": "Across the blog",
+      "style": "",
+      "viewAll": null,
+      "cards": [
+        {
+          "href": "https://gwillchijioke.qzz.io/pagination-playground-deep-thread-test/",
+          "catHref": "",
+          "title": "Pagination playground — deep thread test",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-09-01T09:29:34+00:00",
+          "dateText": "September 1, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/qa-mode-test-how-do-i-lazy-load-images-in-wordpress/",
+          "catHref": "",
+          "title": "QA mode test — how do I lazy-load images in WordPress?",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-09-01T04:57:09+00:00",
+          "dateText": "September 1, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/deepseek-harness/",
+          "catHref": "",
+          "title": "Deepseek Harness",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-27T17:01:00+00:00",
+          "dateText": "August 27, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/tested-and-working/",
+          "catHref": "",
+          "title": "Tested and working",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-27T07:08:20+00:00",
+          "dateText": "August 27, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/test-3/",
+          "catHref": "",
+          "title": "test 3",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-26T18:58:50+00:00",
+          "dateText": "August 26, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/test-2/",
+          "catHref": "",
+          "title": "test",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-26T18:57:35+00:00",
+          "dateText": "August 26, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/test/",
+          "catHref": "",
+          "title": "test",
+          "excerpt": "",
+          "badge": "Article",
+          "img": "",
+          "srcset": "",
+          "mediaClass": "cat-tint",
+          "lead": false,
+          "style": "",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-26T18:43:08+00:00",
+          "dateText": "August 26, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/ai-post-1/",
+          "catHref": "https://gwillchijioke.qzz.io/category/ai/",
+          "title": "AI Post 1",
+          "excerpt": "",
+          "badge": "AI",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-300x200.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-300x200.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-1024x683.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-768x512.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor-1013x675.jpg 1013w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/07/code-editor.jpg 1200w",
+          "mediaClass": "cat-tint has-img",
+          "lead": false,
+          "style": "--c:#34d399;--c-dim:rgba(52,211,153,.10);--c-border:rgba(52,211,153,.22);--c-grad:rgba(52,211,153,.16)",
+          "author": "1 min",
+          "read": "",
+          "dateISO": "2026-08-24T09:28:10+00:00",
+          "dateText": "August 24, 2026"
+        },
+        {
+          "href": "https://gwillchijioke.qzz.io/cloudflare-worker-ai-a-working-bridge-for-openai-compatible-clients/",
+          "catHref": "https://gwillchijioke.qzz.io/category/web-dev/",
+          "title": "Cloudflare Worker AI: A Working Bridge for OpenAI-Compatible Clients",
+          "excerpt": "",
+          "badge": "Web-Dev",
+          "img": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-300x169.jpg",
+          "srcset": "https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-300x169.jpg 300w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-1024x576.jpg 1024w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai-768x432.jpg 768w, https://gwillchijioke.qzz.io/wp-content/uploads/2026/08/gwill-cloudflare-worker-ai.jpg 1200w",
+          "mediaClass": "cat-tint has-img",
+          "lead": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "author": "6 min",
+          "read": "",
+          "dateISO": "2026-08-10T16:32:06+00:00",
+          "dateText": "August 10, 2026"
+        }
+      ],
+      "filters": [
+        {
+          "label": "All",
+          "value": "all",
+          "active": true,
+          "style": "",
+          "cat": false
+        },
+        {
+          "label": "Web-Dev",
+          "value": "web-dev",
+          "active": false,
+          "style": "--c:#9f7aea;--c-dim:rgba(159,122,234,.10);--c-border:rgba(159,122,234,.22);--c-grad:rgba(159,122,234,.16)",
+          "cat": true
+        },
+        {
+          "label": "Software",
+          "value": "software",
+          "active": false,
+          "style": "--c:#22d3ee;--c-dim:rgba(34,211,238,.10);--c-border:rgba(34,211,238,.22);--c-grad:rgba(34,211,238,.16)",
+          "cat": true
+        },
+        {
+          "label": "Android",
+          "value": "android",
+          "active": false,
+          "style": "--c:#00ff91;--c-dim:rgba(0,255,145,.10);--c-border:rgba(0,255,145,.22);--c-grad:rgba(0,255,145,.16)",
+          "cat": true
+        },
+        {
+          "label": "Gutenberg",
+          "value": "gutenberg",
+          "active": false,
+          "style": "--c:#2dd4bf;--c-dim:rgba(45,212,191,.10);--c-border:rgba(45,212,191,.22);--c-grad:rgba(45,212,191,.16)",
+          "cat": true
+        },
+        {
+          "label": "AI",
+          "value": "ai",
+          "active": false,
+          "style": "--c:#34d399;--c-dim:rgba(52,211,153,.10);--c-border:rgba(52,211,153,.22);--c-grad:rgba(52,211,153,.16)",
+          "cat": true
+        }
+      ]
+    }
+  ],
+  "newsletter": {
+    "heading": "Get the Monday dispatch.",
+    "copy": "One email a week - what I tested, what broke, what's worth your time. No spam.",
+    "button": "Subscribe Subscribing…",
+    "placeholder": "you@email.com",
+    "emailId": "nl-email-home"
+  }
+}

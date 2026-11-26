@@ -1,0 +1,10 @@
+---
+import CapturedPage from '../../components/CapturedPage.astro';
+import data from '../../data/pages/author-gwill.json';
+
+export function getStaticPaths() {
+  return [{ params: { author: 'gwill' } }];
+}
+---
+
+<CapturedPage data={data} />

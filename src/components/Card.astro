@@ -1,0 +1,71 @@
+---
+// Card — ported from the LIVE served markup (tech-truth/home.html, `.card` blocks).
+// Element order, class names, inline category colour vars and the stretched-link
+// anatomy are the theme's own. Do not restyle.
+import { local, localSrcset } from '../lib/media';
+import { url } from '../lib/url';
+
+interface CardData {
+  href: string;
+  catHref?: string;
+  title: string;
+  excerpt?: string;
+  badge?: string;
+  img?: string;
+  srcset?: string;
+  mediaClass?: string;
+  lead?: boolean;
+  style?: string;
+  author?: string;
+  read?: string;
+  dateText?: string;
+}
+
+interface Props {
+  card: CardData;
+  index?: number;
+}
+
+const { card, index = 0 } = Astro.props;
+const classes = [
+  'card',
+  card.lead ? 'card-lead' : '',
+  'reveal',
+  card.lead ? 'reveal-d1' : index > 0 && index < 4 ? `reveal-d${index}` : '',
+]
+  .filter(Boolean)
+  .join(' ');
+const mediaClass = ['card-media', card.mediaClass || 'cat-tint'].join(' ');
+---
+
+<div class={classes} style={card.style}>
+  <a href={local(card.href)} class="card-link" tabindex="-1" aria-hidden="true">
+    <div class={mediaClass} style={card.style}>
+      {
+        card.img ? (
+          <img
+            width="300"
+            height="169"
+            src={local(card.img)}
+            class="attachment-medium size-medium wp-post-image"
+            alt={card.title}
+            style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"
+            loading="lazy"
+            decoding="async"
+            srcset={localSrcset(card.srcset || '') || undefined}
+          />
+        ) : (
+          <span class="card-emoji" aria-hidden="true">{card.badge?.slice(0, 1) ?? ''}</span>
+        )
+      }
+    </div>
+  </a>
+  <div class="card-body">
+    {card.badge && <a href={local(card.catHref || '#')} class="badge badge-cat" style={card.style}>{card.badge}</a>}
+    <h3><a href={local(card.href)}>{card.title}</a></h3>
+    {card.excerpt && <p class="card-excerpt">{card.excerpt}</p>}
+    <div class="card-meta">
+      <span>{card.author}</span><span>&middot;</span><span>{card.read}</span><span>&middot;</span><span>{card.dateText}</span>
+    </div>
+  </div>
+</div>

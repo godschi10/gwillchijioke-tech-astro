@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>tech.gwillchijioke.com</title>
+    <link>https://godschi10.github.io/gwillchijioke-tech-astro/</link>
+    <description>Android tutorials and web engineering, tested first.</description>
+    <item>
+      <title>Zero-Downtime Deployments With Nginx and Blue-Green 🔒</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/zero-downtime-deployments-with-nginx-and-blue-green-%25f0%259f%2594%2592/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/zero-downtime-deployments-with-nginx-and-blue-green-%25f0%259f%2594%2592/</guid>
+      <description>This comprehensive guide covers everything you need to know about Zero-Downtime Deployments With Nginx and Blue-Green 🔒. Whether you&amp;#039;re a beginner or experie…</description>
+    </item>
+    <item>
+      <title>WordPress Security: Beyond Plugin Updates</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/wordpress-security-beyond-plugin-updates/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/wordpress-security-beyond-plugin-updates/</guid>
+      <description>Updating Plugins Is Not a Security StrategyIt&amp;amp;apos;s the bare minimum. Real security is layered.Our Hardening ChecklistDisable XML-RPC &amp;amp; REST API for unauthe…</description>
+    </item>
+    <item>
+      <title>WooCommerce Performance: From 8s to 1.2s Load Time</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/woocommerce-performance-from-8s-to-1-2s-load-time/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/woocommerce-performance-from-8s-to-1-2s-load-time/</guid>
+      <description>Client: Mid-Size Fashion Brand. 12K Products. 8 Second Load.Cart abandonment at 78%. Revenue bleeding.DiagnosisNo object cache — every product query hit DBAl…</description>
+    </item>
+    <item>
+      <title>Why Your Lighthouse Score Keeps Dropping 💾</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/why-your-lighthouse-score-keeps-dropping-%25f0%259f%2592%25be/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/why-your-lighthouse-score-keeps-dropping-%25f0%259f%2592%25be/</guid>
+      <description>This comprehensive guide covers everything you need to know about Why Your Lighthouse Score Keeps Dropping 💾. Whether you&amp;#039;re a beginner or experienced develo…</description>
+    </item>
+    <item>
+      <title>Why We Build Custom Themes (And Never Use Page Builders)</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/why-we-build-custom-themes-and-never-use-page-builders/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/why-we-build-custom-themes-and-never-use-page-builders/</guid>
+      <description>Page Builders Are Technical DebtElementor. Divi. WPBakery. They promise speed. They deliver bloat.The Hidden CostsDOM bloat: 15-30x more nodes than semantic …</description>
+    </item>
+    <item>
+      <title>Why Custom WordPress Themes Outperform Page Builders in 2025</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/why-custom-wordpress-themes-outperform-page-builders-in-2025/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/why-custom-wordpress-themes-outperform-page-builders-in-2025/</guid>
+      <description>The Page Builder ProblemPage builders promised freedom. They delivered bloat.Every element you drag adds layers of wrapper divs, inline styles, and JavaScrip…</description>
+    </item>
+    <item>
+      <title>Why Android 16&amp;#8217;s Private Space Changes Everything 📱</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/why-android-16s-private-space-changes-everything-%25f0%259f%2593%25b1/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/why-android-16s-private-space-changes-everything-%25f0%259f%2593%25b1/</guid>
+      <description>This comprehensive guide covers everything you need to know about Why Android 16&amp;#039;s Private Space Changes Everything 📱. Whether you&amp;#039;re a beginner or experienc…</description>
+    </item>
+    <item>
+      <title>WebAssembly: When to Use It, When to Skip It 🗄️</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/webassembly-when-to-use-it-when-to-skip-it-%25f0%259f%2597%2584%25ef%25b8%258f/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/webassembly-when-to-use-it-when-to-skip-it-%25f0%259f%2597%2584%25ef%25b8%258f/</guid>
+      <description>This comprehensive guide covers everything you need to know about WebAssembly: When to Use It, When to Skip It 🗄️. Whether you&amp;#039;re a beginner or experienced d…</description>
+    </item>
+    <item>
+      <title>Understanding eBPF Without the Jargon 🚀</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/understanding-ebpf-without-the-jargon-%25f0%259f%259a%2580/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/understanding-ebpf-without-the-jargon-%25f0%259f%259a%2580/</guid>
+      <description>This comprehensive guide covers everything you need to know about Understanding eBPF Without the Jargon 🚀. Whether you&amp;#039;re a beginner or experienced developer…</description>
+    </item>
+    <item>
+      <title>Understanding Android&amp;#8217;s New Storage Access Framework 🎨</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/understanding-androids-new-storage-access-framework-%25f0%259f%258e%25a8/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/understanding-androids-new-storage-access-framework-%25f0%259f%258e%25a8/</guid>
+      <description>This comprehensive guide covers everything you need to know about Understanding Android&amp;#039;s New Storage Access Framework 🎨. Whether you&amp;#039;re a beginner or experi…</description>
+    </item>
+    <item>
+      <title>TypeScript 6.0 New Features You Need to Know 📝</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/typescript-6-0-new-features-you-need-to-know-%25f0%259f%2593%259d/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/typescript-6-0-new-features-you-need-to-know-%25f0%259f%2593%259d/</guid>
+      <description>This comprehensive guide covers everything you need to know about TypeScript 6.0 New Features You Need to Know 📝. Whether you&amp;#039;re a beginner or experienced de…</description>
+    </item>
+    <item>
+      <title>Turning off 5G standalone fixed my signal drops</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/turning-off-5g-standalone/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/turning-off-5g-standalone/</guid>
+      <description>5G standalone mode drains battery and causes signal drops. Here is what I found after testing on three different phones over two weeks.</description>
+    </item>
+    <item>
+      <title>The Hidden Cost of Cheap Hosting</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/the-hidden-cost-of-cheap-hosting/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/the-hidden-cost-of-cheap-hosting/</guid>
+      <description>/Month Is Not a Deal. It&amp;amp;apos;s a Liability.Shared hosting puts 500 sites on one CPU. Your neighbor&amp;amp;apos;s malware scan kills your TTFB. Their traffic spike …</description>
+    </item>
+    <item>
+      <title>The Complete Guide to WebGPU in 2026 📊</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/the-complete-guide-to-webgpu-in-2026-%25f0%259f%2593%258a/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/the-complete-guide-to-webgpu-in-2026-%25f0%259f%2593%258a/</guid>
+      <description>This comprehensive guide covers everything you need to know about The Complete Guide to WebGPU in 2026 📊. Whether you&amp;#039;re a beginner or experienced developer,…</description>
+    </item>
+    <item>
+      <title>Server Components vs Server-Side Rendering 🔀</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/server-components-vs-server-side-rendering-%25f0%259f%2594%2580/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/server-components-vs-server-side-rendering-%25f0%259f%2594%2580/</guid>
+      <description>This comprehensive guide covers everything you need to know about Server Components vs Server-Side Rendering 🔀. Whether you&amp;#039;re a beginner or experienced deve…</description>
+    </item>
+    <item>
+      <title>SELinux: A Practical Guide for Application Developers 🎨</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/selinux-a-practical-guide-for-application-developers-%25f0%259f%258e%25a8/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/selinux-a-practical-guide-for-application-developers-%25f0%259f%258e%25a8/</guid>
+      <description>This comprehensive guide covers everything you need to know about SELinux: A Practical Guide for Application Developers 🎨. Whether you&amp;#039;re a beginner or exper…</description>
+    </item>
+    <item>
+      <title>Redis Sentinel vs Cluster: Choosing the Right Setup ⚙️</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/redis-sentinel-vs-cluster-choosing-the-right-setup-%25e2%259a%2599%25ef%25b8%258f/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/redis-sentinel-vs-cluster-choosing-the-right-setup-%25e2%259a%2599%25ef%25b8%258f/</guid>
+      <description>This comprehensive guide covers everything you need to know about Redis Sentinel vs Cluster: Choosing the Right Setup ⚙️. Whether you&amp;#039;re a beginner or experi…</description>
+    </item>
+    <item>
+      <title>Redis object caching on a cheap VPS</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/redis-object-caching-cheap-vps/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/redis-object-caching-cheap-vps/</guid>
+      <description>Settings that hold under load - the exact Redis config running on this site. Object caching turned a 2 VPS into something that handles real traffic.</description>
+    </item>
+    <item>
+      <title>PostgreSQL Query Performance: A Systematic Approach 🏗️</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/postgresql-query-performance-a-systematic-approach-%25f0%259f%258f%2597%25ef%25b8%258f/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/postgresql-query-performance-a-systematic-approach-%25f0%259f%258f%2597%25ef%25b8%258f/</guid>
+      <description>This comprehensive guide covers everything you need to know about PostgreSQL Query Performance: A Systematic Approach 🏗️. Whether you&amp;#039;re a beginner or experi…</description>
+    </item>
+    <item>
+      <title>Material You Dynamic Themes Deep Dive 📦</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/material-you-dynamic-themes-deep-dive-%25f0%259f%2593%25a6/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/material-you-dynamic-themes-deep-dive-%25f0%259f%2593%25a6/</guid>
+      <description>This comprehensive guide covers everything you need to know about Material You Dynamic Themes Deep Dive 📦. Whether you&amp;#039;re a beginner or experienced developer…</description>
+    </item>
+    <item>
+      <title>Linux Memory Management Explained With Diagrams 🖥️</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/linux-memory-management-explained-with-diagrams-%25f0%259f%2596%25a5%25ef%25b8%258f/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/linux-memory-management-explained-with-diagrams-%25f0%259f%2596%25a5%25ef%25b8%258f/</guid>
+      <description>This comprehensive guide covers everything you need to know about Linux Memory Management Explained With Diagrams 🖥️. Whether you&amp;#039;re a beginner or experience…</description>
+    </item>
+    <item>
+      <title>Kotlin Coroutines: From Beginner to Production 🌐</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/kotlin-coroutines-from-beginner-to-production-%25f0%259f%258c%2590/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/kotlin-coroutines-from-beginner-to-production-%25f0%259f%258c%2590/</guid>
+      <description>This comprehensive guide covers everything you need to know about Kotlin Coroutines: From Beginner to Production 🌐. Whether you&amp;#039;re a beginner or experienced …</description>
+    </item>
+    <item>
+      <title>Jetpack Compose vs Flutter: A 2026 Comparison 🐧</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/jetpack-compose-vs-flutter-a-2026-comparison-%25f0%259f%2590%25a7/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/jetpack-compose-vs-flutter-a-2026-comparison-%25f0%259f%2590%25a7/</guid>
+      <description>This comprehensive guide covers everything you need to know about Jetpack Compose vs Flutter: A 2026 Comparison 🐧. Whether you&amp;#039;re a beginner or experienced d…</description>
+    </item>
+    <item>
+      <title>In Defence of Monolithic Backends 🔋</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/in-defence-of-monolithic-backends-%25f0%259f%2594%258b/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/in-defence-of-monolithic-backends-%25f0%259f%2594%258b/</guid>
+      <description>This comprehensive guide covers everything you need to know about In Defence of Monolithic Backends 🔋. Whether you&amp;#039;re a beginner or experienced developer, yo…</description>
+    </item>
+    <item>
+      <title>Image Showcase: Testing Images, Galleries and Lightbox 📸</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/image-showcase-testing-images-galleries-and-lightbox-%25f0%259f%2593%25b8/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/image-showcase-testing-images-galleries-and-lightbox-%25f0%259f%2593%25b8/</guid>
+      <description>Images make technical content easier to follow. Here&amp;#039;s how different image layouts look on this theme — single images, full-width, and galleries. Single Imag…</description>
+    </item>
+    <item>
+      <title>How I Cut My Android App APK Size by 60% ⚡</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/how-i-cut-my-android-app-apk-size-by-60-%25e2%259a%25a1/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/how-i-cut-my-android-app-apk-size-by-60-%25e2%259a%25a1/</guid>
+      <description>This comprehensive guide covers everything you need to know about How I Cut My Android App APK Size by 60% ⚡. Whether you&amp;#039;re a beginner or experienced develo…</description>
+    </item>
+    <item>
+      <title>Headless WordPress: When to Decouple (And When Not To)</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/headless-wordpress-when-to-decouple-and-when-not-to/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/headless-wordpress-when-to-decouple-and-when-not-to/</guid>
+      <description>Headless Is Trendy. It&amp;amp;apos;s Not Always Right.React/Next.js frontend. WordPress REST API backend. Sounds modern. Often overkill.Go Headless WhenMultiple fro…</description>
+    </item>
+    <item>
+      <title>Gutenberg Elements Showcase — Every Block Styled</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/gutenberg-elements-showcase/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/gutenberg-elements-showcase/</guid>
+      <description>Welcome to the Gutenberg element showcase — every block on this page is styled by the theme&amp;#039;s own CSS (zero WordPress block-library bloat). Scroll through: t…</description>
+    </item>
+    <item>
+      <title>Git Workflows That Scale to 50+ Engineers 🔄</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/git-workflows-that-scale-to-50-engineers-%25f0%259f%2594%2584/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/git-workflows-that-scale-to-50-engineers-%25f0%259f%2594%2584/</guid>
+      <description>This comprehensive guide covers everything you need to know about Git Workflows That Scale to 50+ Engineers 🔄. Whether you&amp;#039;re a beginner or experienced devel…</description>
+    </item>
+    <item>
+      <title>Docker Compose for Production: Beyond the Basics 🔒</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/docker-compose-for-production-beyond-the-basics-%25f0%259f%2594%2592/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/docker-compose-for-production-beyond-the-basics-%25f0%259f%2594%2592/</guid>
+      <description>This comprehensive guide covers everything you need to know about Docker Compose for Production: Beyond the Basics 🔒. Whether you&amp;#039;re a beginner or experience…</description>
+    </item>
+  </channel>
+</rss>

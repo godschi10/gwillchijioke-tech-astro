@@ -1,0 +1,30 @@
+---
+// Generic renderer for a captured list/landing surface (see scripts/gen-pages.py).
+// The body fragment is the LIVE main content with %BASE% placeholders, so section order and
+// class vocabulary are exactly WordPress's. Filters/pagination are captured markup — their
+// behaviour arrives in a later phase (documented holds), never faked here.
+import Base from '../layouts/Base.astro';
+import AdSticky from '../components/AdSticky.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { BASE } from '../lib/url';
+
+interface Props {
+  data: any;
+}
+const { data } = Astro.props;
+const f = (html: string) => (html || '').replaceAll('%BASE%', BASE);
+// Some captures already end with their own before-footer ad, some don't (measured: adding
+// it unconditionally gave 2× on category/author and 0 on all-posts/tag). Render it only
+// when the captured body lacks one.
+const hasBeforeFooter = (data.body || '').includes('ad-slot--before-footer');
+---
+
+<Base title={data.title} description={data.description || undefined} canonical={data.canonical || undefined} bodyClass={data.bodyClass}>
+  {/* the captured body already CONTAINS the breadcrumb — rendering data.breadcrumb too
+      doubled it (bc=4 vs 2 on every list page) and inflated docH */}
+  {/* the captured body already ends with its own before-footer ad — adding another
+      produced 2× before-footer (measured) and +114px on category/author */}
+  <Fragment set:html={f(data.body)} />
+  {!hasBeforeFooter && <AdSlot variant="before-footer" />}
+  <AdSticky />
+</Base>

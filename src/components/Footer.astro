@@ -1,0 +1,10 @@
+---
+// Footer — generated. Markup lives in src/data/footer-html.ts, transcribed from the LIVE
+// served capture so icon paths, copy and class names stay byte-faithful.
+// Regenerate with: python3 scripts/gen-footer.py
+import { BASE } from '../lib/url';
+import { FOOTER_HTML } from '../data/footer-html';
+const html = FOOTER_HTML.replaceAll('%BASE%', BASE);
+---
+
+<Fragment set:html={html} />

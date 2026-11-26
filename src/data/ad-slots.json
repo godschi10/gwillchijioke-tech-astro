@@ -1,0 +1,86 @@
+{
+  "leaderboard": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-728x90-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"728\" height=\"90\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-728x90-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"728\" height=\"90\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    }
+  ],
+  "before-footer": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-728x90-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"728\" height=\"90\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-728x90-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"728\" height=\"90\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-leaderboard-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    }
+  ],
+  "sticky": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"auto\" height=\"auto\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"auto\" height=\"auto\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    }
+  ],
+  "menu": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sticky-320x100-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"320\" height=\"100\"></div>"
+    }
+  ],
+  "in-content": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-incontent-336x280-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"336\" height=\"280\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-incontent-336x280-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"336\" height=\"280\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-incontent-300x250-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"300\" height=\"250\"></div>"
+    }
+  ],
+  "sidebar": [
+    {
+      "device": "desktop",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sidebar-300x250-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"300\" height=\"250\"></div>"
+    },
+    {
+      "device": "tablet",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-sidebar-300x250-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"300\" height=\"250\"></div>"
+    },
+    {
+      "device": "mobile",
+      "html": "<div class=\"gwill-ad-banner\"><img src=\"%BASE%/wp-content/uploads/2026/08/gwill-ad-incontent-300x250-1.jpg\" alt=\"Advertisement\" loading=\"lazy\" width=\"auto\" height=\"auto\"></div>"
+    }
+  ]
+}

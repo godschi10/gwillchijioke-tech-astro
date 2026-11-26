@@ -1,0 +1,18 @@
+---
+// Sticky ad bar — ported from the LIVE served markup (tech-truth/home.html).
+// Two media shells (mobile sticky creative, desktop leaderboard); sticky-ad.js promotes the
+// matching one and toggles `body.ad-sticky-visible`. With no creative promoted the bar is
+// display:none exactly like live.
+import AdSlot from './AdSlot.astro';
+---
+
+<div class="ad-sticky" id="ad-sticky" role="region" aria-label="Advertisement">
+  <div class="ad-sticky-inner">
+    <div class="ad-sticky-media ad-sticky-media--mobile">
+      <AdSlot variant="sticky" />
+    </div>
+    <div class="ad-sticky-media ad-sticky-media--desktop">
+      <AdSlot variant="leaderboard" />
+    </div>
+  </div>
+</div>

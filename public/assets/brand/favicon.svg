@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Icon mark - EXACT JetBrains Mono 800 glyph outlines (>_ extracted from
+       the theme's TTF), dark rounded tile, brand green. No font dependency.
+       v1.19.01 (King: "the svg logo design has a tiny line bug"): the old
+       translucent halo group re-stroked every glyph path as a wide outline;
+       on device rasterizers those collapsed into stray hairlines beside the
+       mark. Halo removed - the solid glyphs alone are the brand mark. -->
+  <rect width="64" height="64" rx="14" fill="#0d0d0d"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#1e2028" stroke-width="2"/>
+
+  <!-- solid glyphs -->
+  <g transform="translate(8 41.9) scale(0.04 -0.04)" fill="#00ff91">
+    <path d="M85 65V152L395 304Q414 313 430.5 319.5Q447 326 455 328Q446 330 429.0 336.5Q412 343 395 352L85 505V595L515 380V280Z"/>
+    <g transform="translate(600 0)"><path d="M60 -100V-25H540V-100Z"/></g>
+  </g>
+</svg>

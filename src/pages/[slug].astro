@@ -1,0 +1,80 @@
+---
+// Single post — assembled from captured section fragments (src/data/post.json), the same
+// discipline as the footer: copy the served bytes, substitute %BASE%, never retype them.
+//
+// Live structure (measured):
+//   section.section-sm > .wrap > nav.breadcrumb > .article-layout
+//     > article#article-scroll-area
+//         .article-header · .article-cover · .prose#article-body
+//         > ad-slot--in-content · section.nl-band--article · .sidebar-sticky
+//         > .share-row · section.author-box · .post-nav
+//     > ad-slot--leaderboard · section.vibe-comments-section
+//   > ad-slot--before-footer
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import AdSticky from '../components/AdSticky.astro';
+import { BASE } from '../lib/url';
+
+// getStaticPaths is hoisted OUT of the component scope, so the glob must live inside it.
+export function getStaticPaths() {
+  const modules = import.meta.glob('../data/posts/*.json', { eager: true });
+  const ALL = Object.values(modules).map((m: any) => m.default ?? m);
+  // WP stores slugs URL-ENCODED (emoji posts carry %f0%9f…); Astro matches the DECODED path,
+  // so decode here or every emoji post 404s at generate time (NoMatchingStaticPathFound).
+  const dec = (s: string) => { try { return decodeURIComponent(s); } catch { return s; } };
+  return ALL.map((p: any) => ({ params: { slug: dec(p.slug) }, props: { post: p } }));
+}
+
+const { post } = Astro.props as any;
+const { title, fragments, articleClass, description, canonical, ogImage } = post;
+
+// Every fragment carries %BASE% placeholders; substitute once here.
+const f = (html: string) => (html || '').replaceAll('%BASE%', BASE);
+---
+
+<Base
+  title={`${title} - tech.gwillchijioke.com`}
+  description={description || undefined}
+  canonical={canonical || undefined}
+  ogImage={ogImage || undefined}
+  ogType="article"
+  bodyClass="wp-singular post-template-default single single-post wp-theme-gwill-tech-theme gwill-sticky-header">
+  <section class="section-sm">
+    <div class="wrap">
+      <Fragment set:html={f(fragments.breadcrumb)} />
+
+      <div class="article-layout">
+        <article
+          id="article-scroll-area"
+          class={articleClass}
+          itemscope
+          itemtype="https://schema.org/BlogPosting"
+        >
+          <Fragment set:html={f(fragments.header)} />
+          <Fragment set:html={f(fragments.cover)} />
+          <Fragment set:html={f(fragments.caption)} />
+          <Fragment set:html={f(fragments.body)} />
+          <Fragment set:html={f(fragments.tags)} />
+
+          <Fragment set:html={f(fragments.nlBand)} />
+        </article>
+
+        <!-- sidebar is a GRID SIBLING of <article> inside .article-layout (live: 300px column) -->
+        <Fragment set:html={f(fragments.sidebar)} />
+
+        <!-- HOLD (P3): comments are the vibe-comments plugin; its section ships in P3 with a
+             Worker backend. The shell is deliberately absent rather than rendered dead. -->
+      </div>
+
+      <AdSlot variant="leaderboard" />
+
+      <!-- full-width surfaces, siblings of .article-layout (measured: 720 vs article 408) -->
+      <Fragment set:html={f(fragments.share)} />
+      <Fragment set:html={f(fragments.authorBox)} />
+      <Fragment set:html={f(fragments.postNav)} />
+    </div>
+  </section>
+
+  <AdSlot variant="before-footer" />
+  <AdSticky />
+</Base>

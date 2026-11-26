@@ -1,0 +1,112 @@
+---
+// Homepage — section order, class vocabulary and card grouping copied from the LIVE
+// served page (tech-truth/home.html): hero → ad → 5 category sections → filter grid →
+// newsletter → ad. Data comes from src/data/home.json (generated from the same capture).
+import Base from '../layouts/Base.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import Card from '../components/Card.astro';
+import AdSlot from '../components/AdSlot.astro';
+import AdSticky from '../components/AdSticky.astro';
+import NewsletterBand from '../components/NewsletterBand.astro';
+import home from '../data/home.json';
+import { local } from '../lib/media';
+
+const { hero, sections, newsletter } = home as any;
+
+// Sections that carry the filter grid are the "across the blog" one (has filters, no viewAll).
+const catSections = sections.filter((s: any) => s.filters.length === 0);
+const gridSection = sections.find((s: any) => s.filters.length > 0);
+---
+
+<Base
+  title="tech.gwillchijioke.com - Android tutorials and web"
+  bodyClass="home wp-singular page-template-default page page-id-64 wp-embed-responsive wp-theme-gwill-tech-theme gwill-sticky-header"
+>
+  <h1 class="screen-reader-text">tech.gwillchijioke.com - tech tutorials and guides</h1>
+
+  <HeroCarousel slides={hero} />
+
+  <AdSlot variant="leaderboard" />
+
+  {
+    catSections.map((sec: any) => (
+      <>
+        <section class="section-sm">
+          <div class="wrap">
+            <div class="flex justify-between items-center reveal sec-head" style={sec.style}>
+              <p class="label" style={sec.style}>{sec.label}</p>
+              {sec.viewAll && (
+                <a href={local(sec.viewAll.href)} class="sec-head-link" style={sec.style}>
+                  {sec.viewAll.label}
+                </a>
+              )}
+            </div>
+
+            {sec.cards[0] && <Card card={sec.cards[0]} index={0} />}
+
+            {sec.cards.length > 1 && (
+              <div class="grid-2 sec-grid-bottom">
+                {sec.cards.slice(1).map((c: any, i: number) => <Card card={c} index={i + 1} />)}
+              </div>
+            )}
+          </div>
+        </section>
+        <AdSlot variant="leaderboard" />
+      </>
+    ))
+  }
+
+  {
+    gridSection && (
+      <section class="section-sm">
+        <div class="wrap">
+          <div class="flex justify-between items-center reveal sec-head">
+            <p class="label">{gridSection.label}</p>
+            <div
+              class="flex filter-pills"
+              data-target="#home-grid"
+              data-cta="#home-cta"
+              data-context="home"
+              data-per-page="9"
+            >
+              {gridSection.filters.map((f: any) => (
+                <button
+                  class={`pill${f.cat ? ' pill-cat' : ''}${f.active ? ' on' : ''}`}
+                  data-filter={f.value}
+                  style={f.style || undefined}
+                  aria-pressed={f.active ? 'true' : 'false'}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="grid-3 filter-grid" id="home-grid">
+            {gridSection.cards.map((c: any, i: number) => <Card card={c} index={i} />)}
+          </div>
+
+          <div class="flex justify-center filter-cta" id="home-cta" style="margin-top:var(--sp-10)">
+            <a href={local('/all-posts/')} class="btn btn-ghost">View all guides &rarr;</a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section-sm">
+    <div class="wrap">
+      <NewsletterBand
+        heading={newsletter?.heading}
+        copy={newsletter?.copy}
+        placeholder={newsletter?.placeholder}
+        emailId={newsletter?.emailId}
+      />
+    </div>
+  </section>
+
+  <AdSlot variant="before-footer" />
+
+  <AdSticky />
+</Base>
+

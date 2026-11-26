@@ -1,0 +1,60 @@
+---
+// Newsletter band — ported from the LIVE served markup (tech-truth/home.html).
+//
+// HOLD (P1): the WordPress form posted to admin-ajax.php. There is no backend here yet, so
+// this renders the EXACT live markup for visual parity but carries data-p1-hold and no action.
+// P3 wires it to a Worker reusing the existing Brevo credentials. It must never fake success.
+import { url } from '../lib/url';
+
+interface Props {
+  heading?: string;
+  copy?: string;
+  note?: string;
+  kicker?: string;
+  placeholder?: string;
+  emailId?: string;
+}
+const {
+  heading = 'Get the Monday dispatch.',
+  copy = "One email a week - what I tested, what broke, what's worth your time. No spam.",
+  note = 'No spam, ever. Unsubscribe anytime.',
+  kicker = 'Newsletter',
+  placeholder = 'you@email.com',
+  emailId = 'nl-email-home',
+} = Astro.props;
+---
+
+<section class="nl-band nl-band--home" id="newsletter-home" aria-label="Newsletter signup">
+  <div class="nl-band-text">
+    <span class="nl-kicker"><span class="nl-kicker-prompt">&gt;_</span>{kicker}</span>
+    <h2 class="nl-title">{heading}</h2>
+    <p class="nl-desc">{copy}</p>
+  </div>
+  <div class="nl-band-form">
+    <form class="nl-form gwill-form gwill-form--newsletter" method="post" data-p1-hold="newsletter" novalidate>
+      <div class="gwill-honey" aria-hidden="true">
+        <label for={`hp_home`}>Leave this blank</label>
+        <input type="text" name="gwill_hp_gwill-nl-1" id="hp_home" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" name="action" value="gwill_contact_form" />
+      <input type="hidden" name="gwill_form_id" value="newsletter" />
+      <label class="screen-reader-text" for={emailId}>Email address for the newsletter</label>
+      <input
+        type="email"
+        name="gwill_email"
+        id={emailId}
+        class="input nl-input"
+        autocomplete="email"
+        placeholder={placeholder}
+        aria-label="Email address for the newsletter"
+        required
+      />
+      <button class="btn btn-primary nl-submit gwill-form__submit" type="submit">
+        <span class="gwill-form__submit-text">Subscribe</span>
+        <span class="gwill-form__submit-loading" aria-hidden="true">Subscribing…</span>
+      </button>
+      <div class="gwill-form__status" role="alert" aria-live="polite"></div>
+    </form>
+    <p class="nl-note">{note}</p>
+  </div>
+</section>

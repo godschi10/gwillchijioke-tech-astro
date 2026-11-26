@@ -1,0 +1,174 @@
+---
+// Header — ported from the LIVE served markup (tech-truth/header-truth.html).
+// Class names, element order, aria attributes and SVG geometry are the theme's own.
+// Do not restyle or "tidy" this markup: the theme's stylesheet targets exactly these hooks.
+//
+// HOLD (P1): the notification bell (#gwill-bell) renders for visual parity but its panel is
+// owned by the vibe-comments push surface, which arrives in P3 with a Worker backend.
+import { NAV } from '../data/nav';
+import { url } from '../lib/url';
+import AdSlot from './AdSlot.astro';
+
+const current = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? current === '/' : current.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="header-row">
+    <a href={url('/')} class="logo"
+      ><span class="prompt">&gt;_</span><span class="gap"></span><span class="name">gwillchijioke</span><span class="cursor"></span></a
+    >
+
+    <div class="header-actions">
+      <button class="icon-btn" id="search-toggle" aria-label="Search" aria-expanded="false" data-gwill-search-toggle>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          ><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg
+        >
+      </button>
+
+      <button
+        type="button"
+        class="icon-btn gwill-bell"
+        id="gwill-bell"
+        aria-label="Enable notifications"
+        title="Notifications"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-controls="gwill-bell-panel"
+        data-gwill-bell
+        data-push-hold="1"
+      >
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          ><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg
+        >
+      </button>
+
+      <!-- ═══ 1. mobile drawer ═══ -->
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mob-nav" data-gwill-mobile-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ search — outside .header-row so the fixed dropdown escapes overflow-x:auto ═══ -->
+  <div class="search-dropdown" id="search-dropdown" hidden>
+    <div class="search-dropdown-inner">
+      <form class="search-dropdown-form" action={url('/')} method="get" role="search">
+        <svg aria-hidden="true" focusable="false" class="search-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"
+          ><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg
+        >
+        <label class="screen-reader-text" for="search-input">Search</label>
+        <span class="search-input-wrap">
+          <input
+            class="search-dropdown-input"
+            type="text"
+            id="search-input"
+            name="s"
+            value=""
+            placeholder="Search guides..."
+            autocomplete="off"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="search-results"
+            aria-label="Search"
+          />
+          <button class="search-clear" type="button" id="search-clear" aria-label="Clear search text" hidden>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+              ><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg
+            >
+          </button>
+        </span>
+        <button class="search-dropdown-close" id="search-close" type="button" aria-label="Close search">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            ><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg
+          >
+        </button>
+      </form>
+      <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div>
+      <div class="screen-reader-text" id="search-status" role="status" aria-live="polite"></div>
+      <div class="search-dropdown-footer">Press <kbd>Enter</kbd> for full results or <kbd>Esc</kbd> to close</div>
+    </div>
+  </div>
+
+  <nav class="header-row-2" aria-label="Primary navigation">
+    <div class="site-nav">
+      <ul class="site-nav-list">
+        {
+          NAV.map((item) => (
+            <li class={item.classes}>
+              <a href={url(item.href)} class={`nav-link${isActive(item.href) ? ' active' : ''}`}>
+                {item.label}
+                {item.children && (
+                  <span class="mno-caret">
+                    <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </span>
+                )}
+              </a>
+              {item.children && (
+                <ul class="sub-menu">
+                  {item.children.map((c) => (
+                    <li class={c.classes}>
+                      <a href={url(c.href)} class="sub-link">{c.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══ mobile nav overlay ═══ -->
+<div class="mno" id="mob-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <div class="mno-top">
+    <span class="logo mno-logo"
+      ><span class="prompt">&gt;_</span><span class="gap"></span><span class="name">gwillchijioke</span></span
+    >
+    <button class="mno-x" data-gwill-mobile-nav-close aria-label="Close menu">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+        ><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg
+      >
+    </button>
+  </div>
+  <div class="mno-items">
+    <ul class="mno-list">
+      {
+        NAV.map((item) => (
+          <li class={item.classes}>
+            {item.children ? (
+              <div class="mno-parent">
+                <a href={url(item.href)} class={`nav-link${isActive(item.href) ? ' active' : ''}`}>{item.label}</a>
+                <button type="button" class="mno-caret" aria-expanded="false" aria-controls={`mno-sub-${item.classes.match(/menu-item-(\d+)/)?.[1] ?? 'x'}`}>
+                  <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+              </div>
+            ) : (
+              <a href={url(item.href)} class={`nav-link${isActive(item.href) ? ' active' : ''}`}>{item.label}</a>
+            )}
+            {item.children && (
+              <ul class="sub-menu" id={`mno-sub-${item.classes.match(/menu-item-(\d+)/)?.[1] ?? 'x'}`}>
+                {item.children.map((c) => (
+                  <li class={c.classes}>
+                    <a href={url(c.href)} class="sub-link">{c.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="mno-bot">
+    <AdSlot variant="menu" />
+  </div>
+</div>

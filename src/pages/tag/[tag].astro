@@ -1,0 +1,10 @@
+---
+import CapturedPage from '../../components/CapturedPage.astro';
+import data from '../../data/pages/tag-android.json';
+
+export function getStaticPaths() {
+  return [{ params: { tag: 'android' } }];
+}
+---
+
+<CapturedPage data={data} />

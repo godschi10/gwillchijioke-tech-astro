@@ -1,0 +1,19 @@
+---
+// Cookie consent banner — markup verbatim from the LIVE capture (tech-truth/home.html).
+// Behaviour is the theme's own cookie-consent-simple.js (sessionStorage + localStorage).
+// The inline guard style is the theme's too: #cookie is invisible until .show is added.
+import { url } from '../lib/url';
+---
+
+<style is:inline>#cookie:not(.show){opacity:0;visibility:hidden}</style>
+<div id="cookie" role="dialog" aria-modal="false" aria-label="Cookie consent">
+  <p>
+    This site uses cookies for essential functions and privacy-friendly analytics (Matomo) and shows ads.
+    Accept all to allow cookie-based analytics and personalized ads, or essential only for cookieless
+    analytics. <a href={url('/privacy-policy/')} style="color:var(--green);text-decoration:underline">Read the privacy policy.</a>
+  </p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" data-gwill-cookie-accept>Accept all</button>
+    <button class="btn btn-ghost btn-sm" data-gwill-cookie-decline>Essential only</button>
+  </div>
+</div>
