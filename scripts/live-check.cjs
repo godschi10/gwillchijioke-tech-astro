@@ -1,0 +1,11 @@
+const p=require('puppeteer-core');const C='/home/opc/.cache/ms-playwright/chromium-1255/chrome-linux-arm64/chrome';
+(async()=>{const b=await p.launch({executablePath:C,headless:'new',args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
+const pg=await b.newPage();await pg.setViewport({width:390,height:844,deviceScaleFactor:2,isMobile:true,hasTouch:true});
+const errs=[];pg.on('pageerror',e=>errs.push(String(e).slice(0,90)));
+await pg.goto('https://godschi10.github.io/gwillchijioke-tech-astro/',{waitUntil:'networkidle2',timeout:60000});
+await new Promise(r=>setTimeout(r,3000));
+const d=await pg.evaluate(()=>({title:document.title,cards:document.querySelectorAll('.card').length,hero:!!document.querySelector('.hero-carousel'),footer:!!document.querySelector('.site-footer'),css:[...document.styleSheets].length,over:document.documentElement.scrollWidth-document.documentElement.clientWidth}));
+await pg.screenshot({path:'parity/LIVE-phone-390.png'});
+console.log('LIVE:',JSON.stringify(d),'errors=',errs.length);
+errs.slice(0,3).forEach(e=>console.log('  ',e));
+await b.close();})().catch(e=>console.error('FATAL',e.message));
