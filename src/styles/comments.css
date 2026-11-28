@@ -580,6 +580,12 @@
     flex-direction: column;
   }
 
+  /* flex-basis would become a HEIGHT in a column; reset it */
+  .comments-search {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
   .comments-sort {
     align-self: flex-start;
   }
@@ -623,6 +629,6 @@
 /* Mobile fixed tab bar must never cover the final comment or the composer. */
 @media (max-width: 767px) {
   .comments-rail {
-    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 0;
   }
 }
