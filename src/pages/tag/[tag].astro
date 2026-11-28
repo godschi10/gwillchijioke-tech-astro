@@ -1,10 +1,15 @@
 ---
 import CapturedPage from '../../components/CapturedPage.astro';
-import data from '../../data/pages/tag-android.json';
 
 export function getStaticPaths() {
-  return [{ params: { tag: 'android' } }];
+  const modules = import.meta.glob('../../data/taxonomies/tag-*.json', { eager: true });
+  return Object.values(modules).map((m: any) => {
+    const data = m.default ?? m;
+    return { params: { tag: data.route }, props: { data } };
+  });
 }
+
+const { data } = Astro.props as any;
 ---
 
 <CapturedPage data={data} />

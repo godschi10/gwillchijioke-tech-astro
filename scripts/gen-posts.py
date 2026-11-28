@@ -16,9 +16,41 @@ from concurrent.futures import ThreadPoolExecutor
 
 HOST = "https://gwillchijioke.qzz.io"
 ORIGIN = HOST
-SLUGS = [l.strip() for l in open("/home/opc/work/tech-truth/slugs.txt") if l.strip()]
+SITEMAP = f"{HOST}/wp-sitemap-posts-post-1.xml"
+SLUGS_FILE = "/home/opc/work/tech-truth/slugs.txt"
 OUTDIR = "/home/opc/work/tech-astro/src/data/posts"
 os.makedirs(OUTDIR, exist_ok=True)
+
+
+def sitemap_slugs():
+    """All published post slugs from the live WordPress sitemap.
+
+    The original hand-written slugs.txt went stale and silently omitted 8 posts.
+    The sitemap is the source of truth; keep the file as a fallback for offline runs.
+    """
+    import ssl
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    try:
+        req = urllib.request.Request(SITEMAP, headers={"User-Agent": "Mozilla/5.0 (port-capture)"})
+        with urllib.request.urlopen(req, timeout=45, context=ctx) as r:
+            xml = r.read().decode("utf-8", "replace")
+        locs = re.findall(r"<loc>([^<]+)</loc>", xml)
+        out = []
+        for loc in locs:
+            path = urllib.parse.urlparse(loc).path.strip("/")
+            if path:
+                out.append(path)
+        if out:
+            return out
+    except Exception as e:
+        print(f"  sitemap unavailable ({e}); falling back to slugs.txt")
+    return [line.strip() for line in open(SLUGS_FILE) if line.strip()]
+
+
+SLUGS = sitemap_slugs()
+print(f"post slugs: {len(SLUGS)} from {'sitemap' if len(SLUGS) != 0 else 'file'}")
 
 
 def bal(s, start, tag="div"):

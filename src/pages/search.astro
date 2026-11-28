@@ -1,6 +1,64 @@
 ---
-import CapturedPage from '../components/CapturedPage.astro';
-import data from '../data/pages/search.json';
+import Base from '../layouts/Base.astro';
+import AdSlot from '../components/AdSlot.astro';
+import AdSticky from '../components/AdSticky.astro';
+import { url } from '../lib/url';
 ---
 
-<CapturedPage data={data} />
+<Base
+  title="Search - gwillchijioke.com"
+  description="Search every guide, tool and page on gwillchijioke.com."
+  bodyClass="wp-page search-results wp-theme-gwill-tech-theme gwill-sticky-header"
+>
+  <link slot="head" rel="stylesheet" href={url('/css/search-page.css')} />
+
+  <section class="section-sm" style="padding-top:var(--sp-6);padding-bottom:0;position:relative">
+    <div class="wrap">
+      <nav class="breadcrumb" style="margin-bottom:var(--sp-4)" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href={url('/')} class="bc-home-link"><span class="bc-prompt">&gt;_</span>Home</a></li>
+          <li><span class="breadcrumb-current" aria-current="page">Search</span></li>
+        </ol>
+      </nav>
+
+      <div class="about-hero">
+        <p class="label label-green">>_ /search</p>
+        <div class="about-intro">
+          <div class="about-text">
+            <h1 id="search-page-heading" style="font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.1;margin:16px 0;letter-spacing:-.03em">Search</h1>
+            <p id="search-page-count" class="search-page-count">Search every guide, tool and page on the site.</p>
+
+            <form class="search-page-form" action={url('/search/')} method="get" role="search">
+              <label class="screen-reader-text" for="search-page-input">Search guides</label>
+              <input
+                class="search-dropdown-input"
+                type="text"
+                id="search-page-input"
+                name="s"
+                placeholder="Search guides, tools and pages…"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+              />
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="screen-reader-text">Search results</h2>
+      <div class="grid-3 search-page-grid" id="search-page-results"></div>
+      <div class="screen-reader-text" id="search-page-status" role="status" aria-live="polite"></div>
+
+      <AdSlot variant="leaderboard" />
+    </div>
+  </section>
+
+  <AdSlot variant="before-footer" />
+  <AdSticky />
+
+  <script is:inline define:vars={{ indexUrl: url('/search-index.json'), root: url('/') }}>
+    window.__SEARCH_PAGE__ = { indexUrl: indexUrl, root: root };
+  </script>
+  <script is:inline defer src={url('/js/search-page.js')}></script>
+</Base>

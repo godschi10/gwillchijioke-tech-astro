@@ -89,6 +89,30 @@
       <description>This comprehensive guide covers everything you need to know about The Complete Guide to WebGPU in 2026 📊. Whether you&amp;#039;re a beginner or experienced developer,…</description>
     </item>
     <item>
+      <title>Tested and working</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/tested-and-working/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/tested-and-working/</guid>
+      <description>Just double checking to be sure</description>
+    </item>
+    <item>
+      <title>test 3</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/test-3/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/test-3/</guid>
+      <description>thk_live_-bUpjWWJt0aobETB64RcSBzGNdZG-OeAsIWpe0irsgre4aCi9XK-Hwoq2BnS6sas</description>
+    </item>
+    <item>
+      <title>test</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/test-2/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/test-2/</guid>
+      <description>test</description>
+    </item>
+    <item>
+      <title>test</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/test/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/test/</guid>
+      <description>test notification</description>
+    </item>
+    <item>
       <title>Server Components vs Server-Side Rendering 🔀</title>
       <link>https://godschi10.github.io/gwillchijioke-tech-astro/server-components-vs-server-side-rendering-%25f0%259f%2594%2580/</link>
       <guid>https://godschi10.github.io/gwillchijioke-tech-astro/server-components-vs-server-side-rendering-%25f0%259f%2594%2580/</guid>
@@ -113,10 +137,22 @@
       <description>Settings that hold under load - the exact Redis config running on this site. Object caching turned a 2 VPS into something that handles real traffic.</description>
     </item>
     <item>
+      <title>QA mode test — how do I lazy-load images in WordPress?</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/qa-mode-test-how-do-i-lazy-load-images-in-wordpress/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/qa-mode-test-how-do-i-lazy-load-images-in-wordpress/</guid>
+      <description>I want to lazy-load all images in my theme without a plugin. What is the best filter to use?</description>
+    </item>
+    <item>
       <title>PostgreSQL Query Performance: A Systematic Approach 🏗️</title>
       <link>https://godschi10.github.io/gwillchijioke-tech-astro/postgresql-query-performance-a-systematic-approach-%25f0%259f%258f%2597%25ef%25b8%258f/</link>
       <guid>https://godschi10.github.io/gwillchijioke-tech-astro/postgresql-query-performance-a-systematic-approach-%25f0%259f%258f%2597%25ef%25b8%258f/</guid>
       <description>This comprehensive guide covers everything you need to know about PostgreSQL Query Performance: A Systematic Approach 🏗️. Whether you&amp;#039;re a beginner or experi…</description>
+    </item>
+    <item>
+      <title>Pagination playground — deep thread test</title>
+      <link>https://godschi10.github.io/gwillchijioke-tech-astro/pagination-playground-deep-thread-test/</link>
+      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/pagination-playground-deep-thread-test/</guid>
+      <description>A post for testing that search reaches comments that have never been rendered. The needle comments are buried on page 2.</description>
     </item>
     <item>
       <title>Material You Dynamic Themes Deep Dive 📦</title>
@@ -147,42 +183,6 @@
       <link>https://godschi10.github.io/gwillchijioke-tech-astro/in-defence-of-monolithic-backends-%25f0%259f%2594%258b/</link>
       <guid>https://godschi10.github.io/gwillchijioke-tech-astro/in-defence-of-monolithic-backends-%25f0%259f%2594%258b/</guid>
       <description>This comprehensive guide covers everything you need to know about In Defence of Monolithic Backends 🔋. Whether you&amp;#039;re a beginner or experienced developer, yo…</description>
-    </item>
-    <item>
-      <title>Image Showcase: Testing Images, Galleries and Lightbox 📸</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/image-showcase-testing-images-galleries-and-lightbox-%25f0%259f%2593%25b8/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/image-showcase-testing-images-galleries-and-lightbox-%25f0%259f%2593%25b8/</guid>
-      <description>Images make technical content easier to follow. Here&amp;#039;s how different image layouts look on this theme — single images, full-width, and galleries. Single Imag…</description>
-    </item>
-    <item>
-      <title>How I Cut My Android App APK Size by 60% ⚡</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/how-i-cut-my-android-app-apk-size-by-60-%25e2%259a%25a1/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/how-i-cut-my-android-app-apk-size-by-60-%25e2%259a%25a1/</guid>
-      <description>This comprehensive guide covers everything you need to know about How I Cut My Android App APK Size by 60% ⚡. Whether you&amp;#039;re a beginner or experienced develo…</description>
-    </item>
-    <item>
-      <title>Headless WordPress: When to Decouple (And When Not To)</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/headless-wordpress-when-to-decouple-and-when-not-to/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/headless-wordpress-when-to-decouple-and-when-not-to/</guid>
-      <description>Headless Is Trendy. It&amp;amp;apos;s Not Always Right.React/Next.js frontend. WordPress REST API backend. Sounds modern. Often overkill.Go Headless WhenMultiple fro…</description>
-    </item>
-    <item>
-      <title>Gutenberg Elements Showcase — Every Block Styled</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/gutenberg-elements-showcase/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/gutenberg-elements-showcase/</guid>
-      <description>Welcome to the Gutenberg element showcase — every block on this page is styled by the theme&amp;#039;s own CSS (zero WordPress block-library bloat). Scroll through: t…</description>
-    </item>
-    <item>
-      <title>Git Workflows That Scale to 50+ Engineers 🔄</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/git-workflows-that-scale-to-50-engineers-%25f0%259f%2594%2584/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/git-workflows-that-scale-to-50-engineers-%25f0%259f%2594%2584/</guid>
-      <description>This comprehensive guide covers everything you need to know about Git Workflows That Scale to 50+ Engineers 🔄. Whether you&amp;#039;re a beginner or experienced devel…</description>
-    </item>
-    <item>
-      <title>Docker Compose for Production: Beyond the Basics 🔒</title>
-      <link>https://godschi10.github.io/gwillchijioke-tech-astro/docker-compose-for-production-beyond-the-basics-%25f0%259f%2594%2592/</link>
-      <guid>https://godschi10.github.io/gwillchijioke-tech-astro/docker-compose-for-production-beyond-the-basics-%25f0%259f%2594%2592/</guid>
-      <description>This comprehensive guide covers everything you need to know about Docker Compose for Production: Beyond the Basics 🔒. Whether you&amp;#039;re a beginner or experience…</description>
     </item>
   </channel>
 </rss>

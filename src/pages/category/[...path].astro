@@ -1,0 +1,18 @@
+---
+import CapturedPage from '../../components/CapturedPage.astro';
+
+export function getStaticPaths() {
+  const taxonomy = import.meta.glob('../../data/taxonomies/category-*.json', { eager: true });
+  const pagination = import.meta.glob('../../data/pagination/category-*.json', { eager: true });
+  const all = [...Object.values(taxonomy), ...Object.values(pagination)];
+  return all.map((m: any) => {
+    const data = m.default ?? m;
+    const route = data.kind === 'category' ? data.route : data.route.replace(/^category\//, '');
+    return { params: { path: route }, props: { data } };
+  });
+}
+
+const { data } = Astro.props as any;
+---
+
+<CapturedPage data={data} />

@@ -114,6 +114,20 @@ const ogImageAbs = absUrl(ogImage, site);
     <script is:inline defer src={url('/js/sticky-ad.js')}></script>
     <script is:inline defer src={url('/js/embed-facades.js')}></script>
     <script is:inline defer src={url('/js/premium.js')}></script>
+    <script is:inline define:vars={{ searchIndexUrl: url('/search-index.json'), searchPageUrl: url('/search/') }}>
+      window.GwillDropdown = {
+        indexUrl: searchIndexUrl,
+        homeUrl: searchPageUrl,
+        i18n: {
+          loading: 'Searching…',
+          noResults: 'No results found.',
+          noMatches: 'No matches for “%s” — try these recent guides:',
+          error: 'Search unavailable. Please try again.',
+          viewAll: 'View all results →'
+        }
+      };
+    </script>
+    <script is:inline defer src={url('/js/search-dropdown.js')}></script>
     <slot name="head" />
   </head>
   <body class={bodyClass}>

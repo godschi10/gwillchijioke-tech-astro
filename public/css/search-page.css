@@ -1,0 +1,49 @@
+/* Search results page — uses the theme's existing tokens and card vocabulary.
+   This is the WordPress surface restored, not a new design system. */
+.search-page-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 640px;
+  margin: var(--sp-5) 0 0;
+}
+
+.search-page-form .search-dropdown-input {
+  padding-left: 14px;
+  padding-right: 14px;
+  min-height: 44px;
+}
+
+.search-page-form .btn {
+  flex: none;
+}
+
+.search-page-count {
+  margin: 12px 0 0;
+  color: var(--mid);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.search-page-grid {
+  margin-top: var(--sp-8);
+  padding-bottom: var(--sp-8);
+}
+
+.search-page-grid .card {
+  min-width: 0;
+}
+
+.search-page-empty {
+  grid-column: 1 / -1;
+  padding: var(--sp-5);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+.search-page-empty strong {
+  color: var(--text);
+}

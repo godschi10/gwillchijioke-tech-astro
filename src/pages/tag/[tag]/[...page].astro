@@ -1,0 +1,18 @@
+---
+import CapturedPage from '../../../components/CapturedPage.astro';
+
+export function getStaticPaths() {
+  const modules = import.meta.glob('../../../data/pagination/tag-*.json', { eager: true });
+  return Object.values(modules).map((m: any) => {
+    const data = m.default ?? m;
+    const match = String(data.route).match(/^tag\/([^/]+)\/(.+)$/);
+    const tag = match ? match[1] : 'android';
+    const page = match ? match[2] : 'page/2';
+    return { params: { tag, page }, props: { data } };
+  });
+}
+
+const { data } = Astro.props as any;
+---
+
+<CapturedPage data={data} />

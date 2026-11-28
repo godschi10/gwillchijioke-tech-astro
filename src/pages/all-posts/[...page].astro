@@ -1,0 +1,18 @@
+---
+import CapturedPage from '../../components/CapturedPage.astro';
+
+export function getStaticPaths() {
+  const modules = import.meta.glob('../../data/pagination/all-posts-*.json', { eager: true });
+  return Object.values(modules).map((m: any) => {
+    const data = m.default ?? m;
+    return {
+      params: { page: data.route.replace(/^all-posts\//, '') },
+      props: { data },
+    };
+  });
+}
+
+const { data } = Astro.props as any;
+---
+
+<CapturedPage data={data} />

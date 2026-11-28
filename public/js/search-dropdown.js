@@ -233,7 +233,7 @@ Table of Contents
 	//   token in excerpt   +8     token in category  +6
 	//   ALL tokens in title +40   ALL tokens anywhere +25
 	// ── 12. smartMatch─────────────────────────────────────────
-	function smartMatch( query, posts ) {
+	function smartMatch( query, posts, limit ) {
 		var q = norm( query );
 		if ( ! q ) return [];
 		var qtoks = q.split( ' ' );
@@ -289,7 +289,7 @@ Table of Contents
 			if ( b.s !== a.s ) return b.s - a.s;
 			return ( b.p.date || '' ) < ( a.p.date || '' ) ? -1 : 1; // newer first on ties
 		} );
-		return scored.slice( 0, MAX_RESULTS );
+		return scored.slice( 0, limit || MAX_RESULTS );
 	}
 
 	// ── 13. render + highlight────────────────────────────────────────
@@ -604,5 +604,16 @@ Table of Contents
 			.replace( /\"/g, '&quot;' )
 			.replace( /'/g, '&#039;' );
 	}
+
+	// Expose the pure matching helpers so /search/ uses the same ranking and
+	// highlighting as the header dropdown. One engine, two surfaces.
+	window.GwillSearchCore = {
+		norm: norm,
+		toks: toks,
+		smartMatch: smartMatch,
+		highlight: highlight,
+		escapeHtml: escapeHtml,
+		catColor: catColor
+	};
 
 } )();
