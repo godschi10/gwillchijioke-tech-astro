@@ -20,29 +20,20 @@
     });
   });
 
-  var deferredPrompt = null;
-  window.addEventListener('beforeinstallprompt', function (event) {
-    event.preventDefault();
-    deferredPrompt = event;
+  var installPromptAvailable = false;
+  window.addEventListener('beforeinstallprompt', function () {
+    // Do not preventDefault: let the browser show its own install affordance.
+    // The class is available if a future custom install button is added.
+    installPromptAvailable = true;
     document.documentElement.classList.add('pwa-installable');
     document.dispatchEvent(new CustomEvent('gwill:installavailable'));
   });
 
-  window.gwillInstallPWA = function () {
-    if (!deferredPrompt) return Promise.resolve(false);
-    var prompt = deferredPrompt;
-    deferredPrompt = null;
-    return prompt.prompt().then(function () {
-      return prompt.userChoice.then(function (choice) {
-        document.documentElement.classList.remove('pwa-installable');
-        return choice.outcome === 'accepted';
-      });
-    });
-  };
+  window.gwillPWAAvailable = function () { return installPromptAvailable; };
 
   window.addEventListener('appinstalled', function () {
+    installPromptAvailable = false;
     document.documentElement.classList.remove('pwa-installable');
-    deferredPrompt = null;
     document.dispatchEvent(new CustomEvent('gwill:installed'));
   });
 })();
