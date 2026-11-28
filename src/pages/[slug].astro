@@ -57,6 +57,7 @@ const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
           <Fragment set:html={f(fragments.header)} />
           <Fragment set:html={f(fragments.cover)} />
           <Fragment set:html={f(fragments.caption)} />
+          {fragments.tocMobile && <Fragment set:html={f(fragments.tocMobile)} />}
           <Fragment set:html={f(fragments.body)} />
           <Fragment set:html={f(fragments.tags)} />
 

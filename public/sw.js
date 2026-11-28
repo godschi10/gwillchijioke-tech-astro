@@ -4,7 +4,7 @@
  * for assets. Only same-origin GETs inside this deployment scope are touched;
  * WordPress REST comment calls and external images are left alone.
  */
-const VERSION = 'gwill-tech-pwa-v19';
+const VERSION = 'gwill-tech-pwa-v21';
 const SCOPE = self.registration.scope;
 const BASE = new URL(SCOPE);
 const ROOT = BASE.href;

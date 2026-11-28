@@ -29,7 +29,7 @@
     },
     {
       kind: 'laugh', label: 'Haha',
-      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.2 7.8l2.2 1.8-2.2 1.8M15.8 7.8l-2.2 1.8 2.2 1.8"/><path d="M7.4 13.5h9.2c0 3.1-2.1 5.1-4.6 5.1s-4.6-2-4.6-5.1z" fill="currentColor" stroke="none"/><path d="M8.2 13.8h7.6v1.5c-1.2.5-2.5.8-3.8.8s-2.6-.3-3.8-.8z" fill="#ffffff" stroke="none"/><path d="M9.8 17.5c.6-.7 1.4-1.1 2.2-1.1s1.6.4 2.2 1.1c-.6.7-1.4 1.1-2.2 1.1s-1.6-.4-2.2-1.1z" fill="#f87171" stroke="none"/><path class="tear" d="M5.5 8c-.7 1.2-1.1 2-1.1 2.6a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.4-1.3-2.6z" fill="currentColor" stroke="none"/><path class="tear" d="M18.5 8c.8 1.2 1.3 2 1.3 2.6a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.4 1.1-2.6z" fill="currentColor" stroke="none"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.2 7.1l3.6 1.9-3.6 1.9M15.8 7.1l-3.6 1.9 3.6 1.9"/><path d="M7.2 12.3h9.6c0 3.4-2.2 5.9-4.8 5.9s-4.8-2.5-4.8-5.9z" fill="currentColor" stroke="none"/><path d="M8.9 12.6h6.2v0.7c-1 .3-2 .5-3.1.5s-2.1-.2-3.1-.5z" fill="#ffffff" stroke="none"/><path d="M10.1 16.8c.5-.6 1.2-.9 1.9-.9s1.4.3 1.9.9c-.5.6-1.2.9-1.9.9s-1.4-.3-1.9-.9z" fill="#f87171" stroke="none"/><path class="tear" d="M5.5 7.9c-.7 1.2-1.1 2-1.1 2.6a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.4-1.3-2.6z" fill="currentColor" stroke="none"/><path class="tear" d="M18.5 7.9c.8 1.2 1.3 2 1.3 2.6a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.4 1.1-2.6z" fill="currentColor" stroke="none"/></svg>'
     }
   ];
 
