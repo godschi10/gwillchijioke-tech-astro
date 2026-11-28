@@ -17,21 +17,26 @@
   var REACTIONS = [
     {
       kind: 'like', label: 'Like',
-      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3z"/><path d="M7 10l4-7a2 2 0 0 1 3 1.8V9h4.2a2 2 0 0 1 2 2.3l-1 7A2 2 0 0 1 17.2 20H7"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3z"/><path d="M7 10l4-7a2 2 0 0 1 3 1.8V9h4.2a2 2 0 0 1 2 2.3l-1 7A2 2 0 0 1 17.2 20H7"/></svg>'
     },
     {
       kind: 'heart', label: 'Love',
-      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
     },
     {
       kind: 'fire', label: 'Fire',
-      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12.1 22.5c4.2 0 7.6-3.3 7.6-7.4 0-3.1-2.1-5.7-3.9-7.5-.3 1.7-1.1 2.9-2.3 3.7.2-2.7-1-5.5-2.6-7.6-.4 3.3-2.4 5-3.6 6.9-.8 1.3-1.3 2.7-1.3 4.3 0 4.1 3.2 7.6 6.1 7.6z"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12.1 22.5c4.2 0 7.6-3.3 7.6-7.4 0-3.1-2.1-5.7-3.9-7.5-.3 1.7-1.1 2.9-2.3 3.7.2-2.7-1-5.5-2.6-7.6-.4 3.3-2.4 5-3.6 6.9-.8 1.3-1.3 2.7-1.3 4.3 0 4.1 3.2 7.6 6.1 7.6z"/></svg>'
     },
     {
       kind: 'laugh', label: 'Haha',
-      svg: '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.9 8.9l2.4 2.1-2.4 2.1M16.1 8.9l-2.4 2.1 2.4 2.1"/><path d="M7.4 13.1h9.2c0 3.2-2.1 5.3-4.6 5.3s-4.6-2.1-4.6-5.3z"/><path d="M8.6 15.2h6.8"/><path d="M9.8 17.4c.6-.7 1.4-1.1 2.2-1.1s1.6.4 2.2 1.1c-.6.7-1.4 1.1-2.2 1.1s-1.6-.4-2.2-1.1z" fill="currentColor" stroke="none"/><path d="M5.4 8.9c-.7 1.2-1.1 2-1.1 2.7a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.5-1.3-2.7z" fill="currentColor" stroke="none"/><path d="M18.6 8.9c.8 1.2 1.3 2 1.3 2.7a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.5 1.1-2.7z" fill="currentColor" stroke="none"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.9 8.9l2.4 2.1-2.4 2.1M16.1 8.9l-2.4 2.1 2.4 2.1"/><path d="M7.4 13.1h9.2c0 3.2-2.1 5.3-4.6 5.3s-4.6-2.1-4.6-5.3z"/><path d="M8.6 15.2h6.8"/><path d="M9.8 17.4c.6-.7 1.4-1.1 2.2-1.1s1.6.4 2.2 1.1c-.6.7-1.4 1.1-2.2 1.1s-1.6-.4-2.2-1.1z" fill="currentColor" stroke="none"/><path class="tear" d="M5.4 8.9c-.7 1.2-1.1 2-1.1 2.7a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.5-1.3-2.7z" fill="currentColor" stroke="none"/><path class="tear" d="M18.6 8.9c.8 1.2 1.3 2 1.3 2.7a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.5 1.1-2.7z" fill="currentColor" stroke="none"/></svg>'
     }
   ];
+
+  var NEUTRAL = {
+    kind: 'neutral',
+    glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 14c.8 1.5 2 2.3 3.5 2.3s2.7-.8 3.5-2.3"/></svg>'
+  };
 
   var openBtn = document.getElementById('comments-open');
   var openLabel = document.getElementById('comments-open-label');
@@ -203,20 +208,43 @@
     });
   }
 
+  function reactionDisc(def) {
+    return '<span class="react-disc react-' + def.kind + '" aria-hidden="true">' + def.glyph + '</span>';
+  }
+
   function reactionBar(comment) {
     var id = String(comment.id);
     var counts = state.counts[id] || {};
     var mine = state.mine[id] || '';
+    var ordered = REACTIONS.filter(function (def) {
+      return (Number(counts[def.kind]) || 0) > 0;
+    }).sort(function (a, b) {
+      return (Number(counts[b.kind]) || 0) - (Number(counts[a.kind]) || 0);
+    });
+    var total = ordered.reduce(function (sum, def) {
+      return sum + (Number(counts[def.kind]) || 0);
+    }, 0);
+    var stack = (ordered.length ? ordered.slice(0, 3) : REACTIONS)
+      .map(reactionDisc).join('');
+    var label = total > 0 ? String(total) : '';
+    var aria = total > 0 ? 'React to this comment. ' + total + ' reaction' + (total === 1 ? '' : 's') : 'React to this comment';
+    var options = REACTIONS.map(function (def) {
+      var count = Number(counts[def.kind]) || 0;
+      return '<button type="button" class="react-option" role="menuitemradio" aria-checked="' +
+        (mine === def.kind ? 'true' : 'false') + '" data-reaction-kind="' + def.kind +
+        '" data-comment-id="' + esc(id) + '" aria-label="' + def.label + '">' +
+        reactionDisc(def) +
+        '</button>';
+    }).join('');
+
     return '<div class="comment-reactions" data-comment-id="' + esc(id) + '">' +
-      REACTIONS.map(function (def) {
-        var count = Number(counts[def.kind]) || 0;
-        return '<button type="button" class="comment-reaction" data-reaction-kind="' + def.kind +
-          '" data-comment-id="' + esc(id) + '" aria-label="' + def.label + '" aria-pressed="' +
-          (mine === def.kind ? 'true' : 'false') + '">' +
-          '<span class="reaction-icon" aria-hidden="true">' + def.svg + '</span>' +
-          (count > 0 ? '<span class="reaction-count">' + count + '</span>' : '') +
-          '</button>';
-      }).join('') + '</div>';
+      '<button type="button" class="react-summary" data-comment-id="' + esc(id) +
+        '" aria-haspopup="menu" aria-expanded="false" aria-label="' + aria + '">' +
+        '<span class="react-stack">' + stack + '</span>' +
+        '<span class="react-total">' + label + '</span>' +
+      '</button>' +
+      '<div class="reaction-picker" role="menu" hidden>' + options + '</div>' +
+    '</div>';
   }
 
   function commentMarkup(comment, depth) {
@@ -394,18 +422,55 @@
   });
   if (closeBtn) closeBtn.addEventListener('click', closePanel);
 
+  function closePickers(except) {
+    document.querySelectorAll('.comment-reactions').forEach(function (wrap) {
+      if (wrap === except) return;
+      var picker = wrap.querySelector('.reaction-picker');
+      var summary = wrap.querySelector('.react-summary');
+      if (picker) picker.hidden = true;
+      if (summary) summary.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   if (list) list.addEventListener('click', function (e) {
-    var reaction = e.target.closest('.comment-reaction');
-    if (reaction) {
-      react(reaction.getAttribute('data-comment-id'), reaction.getAttribute('data-reaction-kind'), reaction);
+    var summary = e.target.closest('.react-summary');
+    if (summary) {
+      e.preventDefault();
+      e.stopPropagation();
+      var wrap = summary.closest('.comment-reactions');
+      var picker = wrap && wrap.querySelector('.reaction-picker');
+      if (!picker) return;
+      var wasOpen = !picker.hidden;
+      closePickers();
+      if (!wasOpen) {
+        picker.hidden = false;
+        summary.setAttribute('aria-expanded', 'true');
+      }
       return;
     }
+
+    var option = e.target.closest('.react-option');
+    if (option) {
+      e.preventDefault();
+      e.stopPropagation();
+      react(option.getAttribute('data-comment-id'), option.getAttribute('data-reaction-kind'), option);
+      return;
+    }
+
     var reply = e.target.closest('.comment-reply-link');
     if (reply) setReply(reply.getAttribute('data-reply-id'), reply.getAttribute('data-reply-name'));
   });
 
   document.addEventListener('click', function (e) {
-    if (e.target && e.target.id === 'comment-reply-cancel') setReply(0, '');
+    if (e.target && e.target.id === 'comment-reply-cancel') {
+      setReply(0, '');
+      return;
+    }
+    if (!e.target.closest || !e.target.closest('.comment-reactions')) closePickers();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closePickers();
   });
 
   if (searchEl) {
@@ -479,6 +544,22 @@
       });
   });
 
-  loadCount();
+  function observeCount() {
+    var section = document.getElementById('comments');
+    if (!section) return;
+    if (!('IntersectionObserver' in window)) {
+      loadCount();
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries.some(function (entry) { return entry.isIntersecting; })) {
+        observer.disconnect();
+        loadCount();
+      }
+    }, { rootMargin: '300px 0px' });
+    observer.observe(section);
+  }
+
+  observeCount();
   if (location.hash === '#comments') openPanel();
 })();

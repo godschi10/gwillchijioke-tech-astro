@@ -288,18 +288,17 @@
 }
 
 .comment-reactions {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.react-summary {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  flex-wrap: wrap;
-}
-
-.comment-reaction {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  min-height: 30px;
-  padding: 2px 7px;
+  min-height: 28px;
+  padding: 2px 6px 2px 2px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
@@ -311,26 +310,131 @@
   transition: border-color .15s, background .15s, color .15s;
 }
 
-.comment-reaction:hover {
+.react-summary:hover,
+.react-summary[aria-expanded="true"] {
   border-color: var(--border-strong);
   color: var(--text);
+  background: var(--surface-2);
 }
 
-.comment-reaction[aria-pressed="true"] {
-  border-color: var(--green-border);
-  background: var(--green-dim);
-  color: var(--green);
+.react-stack {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 2px;
 }
 
-.reaction-icon {
+.react-disc {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .18);
 }
 
-.reaction-icon svg {
+.react-stack .react-disc + .react-disc {
+  margin-left: -7px;
+}
+
+.react-disc svg {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.react-like { background: #2563eb; color: #fff; }
+.react-heart { background: #e11d48; color: #fff; }
+.react-fire { background: #f97316; color: #fff; }
+.react-laugh { background: #f5c542; color: #1f2937; }
+.react-laugh .tear { fill: #3b82f6; }
+.react-neutral { background: #334155; color: #cbd5e1; }
+
+.react-total {
+  color: var(--mid);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.react-summary:hover .react-total,
+.react-summary[aria-expanded="true"] .react-total {
+  color: var(--text);
+}
+
+.reaction-picker {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 5px;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow-lg);
+}
+
+.reaction-picker[hidden] {
+  display: none;
+}
+
+.react-option {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 32px;
+  padding: 1px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--mid);
+  cursor: pointer;
+}
+
+.react-option:hover,
+.react-option[aria-checked="true"] {
+  background: var(--surface-3);
+}
+
+.react-option .react-disc {
+  width: 30px;
+  height: 30px;
+  border-width: 1px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .28);
+  transition: transform .16s var(--ease-quick, ease), box-shadow .16s;
+}
+
+.react-option:hover .react-disc {
+  transform: translateY(-3px) scale(1.06);
+}
+
+.react-option[aria-checked="true"] .react-disc {
+  box-shadow: 0 0 0 2px var(--green), 0 2px 8px rgba(0, 0, 0, .3);
+}
+
+.react-option-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: .02em;
+}
+
+.react-option[aria-checked="true"] .react-option-label {
+  color: var(--green);
+}
+
+.react-option-count {
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
 }
 
 .comment-loading,
@@ -630,5 +734,14 @@
 @media (max-width: 767px) {
   .comments-rail {
     padding-bottom: 0;
+  }
+}
+
+
+/* Post pages only (this stylesheet is component-scoped): keep the fixed tab bar
+   from sitting over the footer or the very last line of the thread. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   }
 }

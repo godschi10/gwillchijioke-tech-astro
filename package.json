@@ -1,7 +1,7 @@
 {
   "name": "gwill-tech-astro",
   "type": "module",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "scripts": {
     "dev": "astro dev",
