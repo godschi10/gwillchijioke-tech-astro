@@ -29,7 +29,7 @@
     },
     {
       kind: 'laugh', label: 'Haha',
-      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.9 8.9l2.4 2.1-2.4 2.1M16.1 8.9l-2.4 2.1 2.4 2.1"/><path d="M7.4 13.1h9.2c0 3.2-2.1 5.3-4.6 5.3s-4.6-2.1-4.6-5.3z"/><path d="M8.6 15.2h6.8"/><path d="M9.8 17.4c.6-.7 1.4-1.1 2.2-1.1s1.6.4 2.2 1.1c-.6.7-1.4 1.1-2.2 1.1s-1.6-.4-2.2-1.1z" fill="currentColor" stroke="none"/><path class="tear" d="M5.4 8.9c-.7 1.2-1.1 2-1.1 2.7a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.5-1.3-2.7z" fill="currentColor" stroke="none"/><path class="tear" d="M18.6 8.9c.8 1.2 1.3 2 1.3 2.7a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.5 1.1-2.7z" fill="currentColor" stroke="none"/></svg>'
+      glyph: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.2 7.8l2.2 1.8-2.2 1.8M15.8 7.8l-2.2 1.8 2.2 1.8"/><path d="M7.4 13.5h9.2c0 3.1-2.1 5.1-4.6 5.1s-4.6-2-4.6-5.1z"/><path d="M8.6 15.4h6.8"/><path d="M9.8 17.5c.6-.7 1.4-1.1 2.2-1.1s1.6.4 2.2 1.1c-.6.7-1.4 1.1-2.2 1.1s-1.6-.4-2.2-1.1z" fill="currentColor" stroke="none"/><path class="tear" d="M5.5 8c-.7 1.2-1.1 2-1.1 2.6a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.4-1.3-2.6z" fill="currentColor" stroke="none"/><path class="tear" d="M18.5 8c.8 1.2 1.3 2 1.3 2.6a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.4 1.1-2.6z" fill="currentColor" stroke="none"/></svg>'
     }
   ];
 
@@ -224,7 +224,10 @@
     var total = ordered.reduce(function (sum, def) {
       return sum + (Number(counts[def.kind]) || 0);
     }, 0);
-    var stack = (ordered.length ? ordered.slice(0, 3) : REACTIONS)
+    // At rest: max three discs. The laugh is not part of the default trio; it
+    // only appears when it earns a top-three slot, and always in the picker.
+    var restDefaults = REACTIONS.filter(function (def) { return def.kind !== 'laugh'; });
+    var stack = (ordered.length ? ordered.slice(0, 3) : restDefaults)
       .map(reactionDisc).join('');
     var label = total > 0 ? String(total) : '';
     var aria = total > 0 ? 'React to this comment. ' + total + ' reaction' + (total === 1 ? '' : 's') : 'React to this comment';
