@@ -42,6 +42,7 @@ const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
   ogImage={ogImage || undefined}
   ogType="article"
   bodyClass="wp-singular post-template-default single single-post wp-theme-gwill-tech-theme gwill-sticky-header">
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
   <section class="section-sm">
     <div class="wrap">
       <Fragment set:html={f(fragments.breadcrumb)} />
