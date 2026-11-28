@@ -1,0 +1,11 @@
+/* Share row confirmation */
+#gwill-copy-link.is-copied {
+  color: var(--green);
+  border-color: var(--green-border);
+  background: var(--green-dim);
+}
+
+.share-buttons a,
+.share-buttons button {
+  min-height: 44px;
+}

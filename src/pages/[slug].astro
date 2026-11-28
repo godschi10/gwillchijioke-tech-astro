@@ -14,7 +14,8 @@ import Base from '../layouts/Base.astro';
 import AdSlot from '../components/AdSlot.astro';
 import AdSticky from '../components/AdSticky.astro';
 import CommentSection from '../components/CommentSection.astro';
-import { BASE_NS } from '../lib/url';
+import { BASE_NS, url } from '../lib/url';
+import '../styles/share.css';
 
 // getStaticPaths is hoisted OUT of the component scope, so the glob must live inside it.
 export function getStaticPaths() {
@@ -81,4 +82,5 @@ const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
 
   <AdSlot variant="before-footer" />
   <AdSticky />
+  <script is:inline defer src={url('/js/share.js')}></script>
 </Base>
