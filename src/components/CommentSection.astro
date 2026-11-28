@@ -7,57 +7,97 @@ interface Props {
   postTitle?: string;
 }
 
-const { postId, postTitle = 'this article' } = Astro.props;
+const { postId } = Astro.props;
 const id = String(postId);
 ---
 
-<section class="comments-area" id="comments" aria-labelledby="comments-title">
-  <h2 class="comments-title" id="comments-title">
-    Comments <span class="comment-count" id="comment-count" aria-hidden="true"></span>
-  </h2>
+<section class="comments-area comments-rail" id="comments" aria-labelledby="comments-title">
+  <div class="comments-teaser">
+    <div class="comments-teaser-copy">
+      <p class="comments-kicker">Discussion</p>
+      <h2 class="comments-title" id="comments-title">Join the conversation</h2>
+      <p class="comments-sub">Questions, corrections, field notes. Comments are moderated before they appear.</p>
+    </div>
+    <button
+      class="btn btn-primary comments-open"
+      id="comments-open"
+      type="button"
+      aria-expanded="false"
+      aria-controls="comments-panel"
+    >
+      <span id="comments-open-label">Open comments</span>
+      <svg class="comments-open-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+    </button>
+  </div>
 
-  <ol class="comment-list" id="comment-list" aria-live="polite" aria-busy="true">
-    <li class="comment comment-loading">Loading comments…</li>
-  </ol>
-
-  <div class="comment-respond">
-    <h3 class="comment-reply-title" id="comment-reply-title">Leave a comment</h3>
-
-    <form class="comment-form" id="comment-form" novalidate>
-      <p class="comment-notes">
-        Your email is never published. Comments are moderated before they appear.
-      </p>
-
-      <div class="comment-form-row">
-        <p>
-          <label class="screen-reader-text" for="comment-author">Name</label>
-          <input id="comment-author" name="author" type="text" placeholder="Your name" autocomplete="name" required maxlength="80" />
-        </p>
-        <p>
-          <label class="screen-reader-text" for="comment-email">Email</label>
-          <input id="comment-email" name="email" type="email" placeholder="Email address" autocomplete="email" required maxlength="120" />
-        </p>
+  <div class="comments-panel" id="comments-panel" hidden>
+    <div class="comments-panel-head">
+      <div>
+        <p class="comments-kicker">Thread</p>
+        <h3 class="comments-panel-title">Comments <span class="comment-heading-count" id="comments-heading-count"></span></h3>
       </div>
+      <button class="comments-close" id="comments-close" type="button" aria-label="Close comments">Close</button>
+    </div>
 
-      <p>
-        <label class="screen-reader-text" for="comment-content">Comment</label>
-        <textarea id="comment-content" name="comment" rows="5" placeholder="Join the discussion…" required maxlength="2000"></textarea>
-      </p>
+    <div class="comments-toolbar" id="comments-toolbar" hidden>
+      <label class="comments-search">
+        <span class="screen-reader-text">Search comments</span>
+        <input id="comments-search" type="search" placeholder="Search this thread…" autocomplete="off" />
+      </label>
+      <div class="comments-sort" role="group" aria-label="Sort comments">
+        <button type="button" data-sort="newest" class="is-active">Newest</button>
+        <button type="button" data-sort="oldest">Oldest</button>
+        <button type="button" data-sort="top">Top</button>
+      </div>
+    </div>
 
-      <!-- Honeypot: hidden from people, tempting to naive bots. -->
-      <p class="gwill-hp" aria-hidden="true">
-        <label for="gwill-hp">Leave this field empty</label>
-        <input id="gwill-hp" name="gwill_hp" type="text" tabindex="-1" autocomplete="off" />
-      </p>
+    <ol class="comment-list" id="comment-list" aria-live="polite" aria-busy="false"></ol>
+    <p class="comments-empty" id="comments-empty" hidden>No comments yet. The first one is yours.</p>
 
-      <input id="comment-parent" name="parent" type="hidden" value="" />
+    <noscript>
+      <p class="no-comments">Enable JavaScript to load the discussion and post a comment.</p>
+    </noscript>
 
-      <p class="form-submit">
-        <input id="comment-submit" type="submit" value="Post comment" />
-      </p>
+    <div class="comment-respond">
+      <h3 class="comment-reply-title" id="comment-reply-title">Leave a comment</h3>
 
-      <div id="comment-status" class="comment-status" role="status" aria-live="polite"></div>
-    </form>
+      <form class="comment-form" id="comment-form" novalidate>
+        <p class="comment-notes">
+          Comments are held for review. Your email is never published.
+        </p>
+
+        <div class="comment-form-row">
+          <p>
+            <label for="comment-author">Name</label>
+            <input id="comment-author" name="author" type="text" placeholder="Your name" autocomplete="name" required maxlength="80" />
+          </p>
+          <p>
+            <label for="comment-email">Email</label>
+            <input id="comment-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="120" />
+            <span class="comment-field-hint">For moderation and your avatar only. Never shown.</span>
+          </p>
+        </div>
+
+        <p>
+          <label for="comment-content">Comment</label>
+          <textarea id="comment-content" name="comment" rows="5" placeholder="Add to the discussion…" required maxlength="2000"></textarea>
+          <span class="comment-char-counter"><span id="comment-char-count">0</span> / 2000</span>
+        </p>
+
+        <p class="gwill-hp" aria-hidden="true">
+          <label for="gwill-hp">Leave this field empty</label>
+          <input id="gwill-hp" name="gwill_hp" type="text" tabindex="-1" autocomplete="off" />
+        </p>
+
+        <input id="comment-parent" name="parent" type="hidden" value="" />
+
+        <p class="form-submit">
+          <input id="comment-submit" type="submit" value="Post comment" />
+        </p>
+
+        <div id="comment-status" class="comment-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
   </div>
 </section>
 
