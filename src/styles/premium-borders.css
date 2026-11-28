@@ -1,0 +1,83 @@
+/* ============================================================================
+   PREMIUM BORDER PASS
+   ----------------------------------------------------------------------------
+   The theme's neutral border was #596276 — a mid-grey that reads as a drawn
+   outline on a #0d0d0d page. It was doing structural work on every card, input,
+   button and panel, so the site read as wireframed rather than surfaced.
+
+   This layer softens neutral lines to low-alpha hairlines. Category colours,
+   active states and focus rings are untouched: those are information, not
+   structure. No layout, spacing, typography or component geometry changes.
+   ========================================================================== */
+
+:root {
+  /* Structural edges: quiet hairlines with enough definition to hold the plane. */
+  --border: rgba(255, 255, 255, .09);
+  --border-2: rgba(255, 255, 255, .14);
+  --border-soft: rgba(255, 255, 255, .075);
+  --border-strong: rgba(255, 255, 255, .18);
+}
+
+/* Full surfaces get the quietest edge. Their background already separates them
+   from the page; the border only defines the plane. */
+.card,
+.sidebar-widget,
+.nl-band,
+.about-hero,
+.post-nav,
+.author-box,
+.share-row,
+.ad-slot,
+.gt-card,
+.gt-toolbar,
+.gt-sec,
+.filter-bar,
+.search-dropdown,
+.article-cover,
+.article-cover--video,
+.site-header,
+.site-footer {
+  border-color: var(--border-soft);
+}
+
+/* Controls need a little more definition than containers, but still far below
+   the old mid-grey. */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select,
+.icon-btn,
+.hamburger,
+.search-clear,
+.search-dropdown-close,
+.search-page-form .search-dropdown-input {
+  border-color: rgba(255, 255, 255, .14);
+}
+
+.btn-ghost,
+.btn-secondary {
+  border-color: rgba(255, 255, 255, .14);
+}
+
+/* Hairline dividers: same quiet family, never a bright rule. */
+.header-row,
+.header-row-2,
+.footer-bottom,
+.footer-col,
+.post-nav,
+.share-row,
+.prose hr,
+.prose .wp-block-separator {
+  border-color: var(--border-soft);
+}
+
+/* Cards and panels keep a soft edge on hover instead of snapping lighter. */
+@media (hover: hover) {
+  .card:hover,
+  .card:focus-within,
+  .sidebar-widget:hover {
+    border-color: rgba(255, 255, 255, .16);
+  }
+}
+
+/* --- */
+
