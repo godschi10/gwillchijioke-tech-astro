@@ -12,10 +12,10 @@
 
 :root {
   /* Structural edges: quiet hairlines with enough definition to hold the plane. */
-  --border: rgba(255, 255, 255, .09);
-  --border-2: rgba(255, 255, 255, .14);
-  --border-soft: rgba(255, 255, 255, .075);
-  --border-strong: rgba(255, 255, 255, .18);
+  --border: rgba(255, 255, 255, .16);
+  --border-2: rgba(255, 255, 255, .20);
+  --border-soft: rgba(255, 255, 255, .16);
+  --border-strong: rgba(255, 255, 255, .24);
 }
 
 /* Full surfaces get the quietest edge. Their background already separates them
@@ -50,12 +50,12 @@ select,
 .search-clear,
 .search-dropdown-close,
 .search-page-form .search-dropdown-input {
-  border-color: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .22);
 }
 
 .btn-ghost,
 .btn-secondary {
-  border-color: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .22);
 }
 
 /* Hairline dividers: same quiet family, never a bright rule. */
@@ -75,7 +75,7 @@ select,
   .card:hover,
   .card:focus-within,
   .sidebar-widget:hover {
-    border-color: rgba(255, 255, 255, .16);
+    border-color: rgba(255, 255, 255, .22);
   }
 }
 
