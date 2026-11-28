@@ -1,0 +1,67 @@
+---
+import { url } from '../lib/url';
+import { COMMENTS_WP_ORIGIN } from '../data/comments';
+
+interface Props {
+  postId: string | number;
+  postTitle?: string;
+}
+
+const { postId, postTitle = 'this article' } = Astro.props;
+const id = String(postId);
+---
+
+<section class="comments-area" id="comments" aria-labelledby="comments-title">
+  <h2 class="comments-title" id="comments-title">
+    Comments <span class="comment-count" id="comment-count" aria-hidden="true"></span>
+  </h2>
+
+  <ol class="comment-list" id="comment-list" aria-live="polite" aria-busy="true">
+    <li class="comment comment-loading">Loading comments…</li>
+  </ol>
+
+  <div class="comment-respond">
+    <h3 class="comment-reply-title" id="comment-reply-title">Leave a comment</h3>
+
+    <form class="comment-form" id="comment-form" novalidate>
+      <p class="comment-notes">
+        Your email is never published. Comments are moderated before they appear.
+      </p>
+
+      <div class="comment-form-row">
+        <p>
+          <label class="screen-reader-text" for="comment-author">Name</label>
+          <input id="comment-author" name="author" type="text" placeholder="Your name" autocomplete="name" required maxlength="80" />
+        </p>
+        <p>
+          <label class="screen-reader-text" for="comment-email">Email</label>
+          <input id="comment-email" name="email" type="email" placeholder="Email address" autocomplete="email" required maxlength="120" />
+        </p>
+      </div>
+
+      <p>
+        <label class="screen-reader-text" for="comment-content">Comment</label>
+        <textarea id="comment-content" name="comment" rows="5" placeholder="Join the discussion…" required maxlength="2000"></textarea>
+      </p>
+
+      <!-- Honeypot: hidden from people, tempting to naive bots. -->
+      <p class="gwill-hp" aria-hidden="true">
+        <label for="gwill-hp">Leave this field empty</label>
+        <input id="gwill-hp" name="gwill_hp" type="text" tabindex="-1" autocomplete="off" />
+      </p>
+
+      <input id="comment-parent" name="parent" type="hidden" value="" />
+
+      <p class="form-submit">
+        <input id="comment-submit" type="submit" value="Post comment" />
+      </p>
+
+      <div id="comment-status" class="comment-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<script is:inline define:vars={{ postId: id, apiOrigin: COMMENTS_WP_ORIGIN }}>
+  window.__GWILL_COMMENTS__ = { postId: postId, apiOrigin: apiOrigin };
+</script>
+<script is:inline defer src={url('/js/comments.js')}></script>

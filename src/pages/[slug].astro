@@ -13,6 +13,7 @@
 import Base from '../layouts/Base.astro';
 import AdSlot from '../components/AdSlot.astro';
 import AdSticky from '../components/AdSticky.astro';
+import CommentSection from '../components/CommentSection.astro';
 import { BASE_NS } from '../lib/url';
 
 // getStaticPaths is hoisted OUT of the component scope, so the glob must live inside it.
@@ -27,6 +28,7 @@ export function getStaticPaths() {
 
 const { post } = Astro.props as any;
 const { title, fragments, articleClass, description, canonical, ogImage } = post;
+const wpPostId = (String(articleClass || '').match(/post-(\d+)/) || [])[1] || '';
 
 // Every fragment carries %BASE% placeholders; substitute once here.
 const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
@@ -72,6 +74,8 @@ const f = (html: string) => (html || '').replaceAll('%BASE%', BASE_NS);
       <Fragment set:html={f(fragments.share)} />
       <Fragment set:html={f(fragments.authorBox)} />
       <Fragment set:html={f(fragments.postNav)} />
+
+      {wpPostId && <CommentSection postId={wpPostId} postTitle={title} />}
     </div>
   </section>
 

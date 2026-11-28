@@ -9,6 +9,21 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Search guides",
+      "short_name": "Search",
+      "url": "./search/",
+      "icons": [{ "src": "assets/brand/appicon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Latest guides",
+      "short_name": "Latest",
+      "url": "./all-posts/",
+      "icons": [{ "src": "assets/brand/appicon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
   "background_color": "#0d0d0d",
   "theme_color": "#0d0d0d",
   "categories": [

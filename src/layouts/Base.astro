@@ -7,6 +7,7 @@
 import '../styles/fonts.css';
 import '../styles/theme.css';
 import '../styles/premium-borders.css';
+import '../styles/comments.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -129,6 +130,7 @@ const ogImageAbs = absUrl(ogImage, site);
       };
     </script>
     <script is:inline defer src={url('/js/search-dropdown.js')}></script>
+    <script is:inline defer src={url('/js/pwa.js')}></script>
     <slot name="head" />
   </head>
   <body class={bodyClass}>
