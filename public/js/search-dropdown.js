@@ -153,36 +153,58 @@ Table of Contents
 		return n ? n.split( ' ' ) : [];
 	}
 
-	// Bounded Levenshtein - typo tolerance (returns 9 when clearly too far).
-	// ── 5. editDist───────────────────────────────────────────
+	// Damerau-Levenshtein (optimal string alignment): insertion, deletion,
+	// substitution AND adjacent transposition. A plain Levenshtein scores
+	// "andriod" as 2 edits, which is too harsh for real typing mistakes.
 	function editDist( a, b ) {
 		var la = a.length, lb = b.length;
 		if ( a === b ) return 0;
-		if ( Math.abs( la - lb ) > 2 ) return 9;
-		var row = [], i, j;
-		for ( j = 0; j <= lb; j++ ) row[ j ] = j;
+		if ( Math.abs( la - lb ) > 3 ) return 9;
+		var prevprev = [], prev = [], cur = [], i, j;
+		for ( j = 0; j <= lb; j++ ) prev[ j ] = j;
 		for ( i = 1; i <= la; i++ ) {
-			var prev = row[ 0 ], cur;
-			row[ 0 ] = i;
+			cur = [ i ];
 			for ( j = 1; j <= lb; j++ ) {
-				cur = Math.min( row[ j ] + 1, row[ j - 1 ] + 1, prev + ( a[ i - 1 ] === b[ j - 1 ] ? 0 : 1 ) );
-				prev = row[ j ];
-				row[ j ] = cur;
+				var cost = a[ i - 1 ] === b[ j - 1 ] ? 0 : 1;
+				cur[ j ] = Math.min( prev[ j ] + 1, cur[ j - 1 ] + 1, prev[ j - 1 ] + cost );
+				if ( i > 1 && j > 1 && a[ i - 1 ] === b[ j - 2 ] && a[ i - 2 ] === b[ j - 1 ] ) {
+					cur[ j ] = Math.min( cur[ j ], prevprev[ j - 2 ] + 1 );
+				}
 			}
+			prevprev = prev; prev = cur;
 		}
-		return row[ lb ];
+		return prev[ lb ];
 	}
 
-	// A query token tolerates a small typo in a title word (len >= 4 only,
-	// so 2-char tokens never fuzzy-match into junk). The first-letter anchor
-	// blocks unrelated words that happen to sit within edit distance
-	// ("battery" vs "matter" = dist 2 - same length, unrelated meaning).
-	// ── 6. fuzzyOk────────────────────────────────────────────
+	// Bounded typo match. Long tokens get two edits, very long get three.
+	// A first-character mismatch is only allowed for a single edit (qndroid →
+	// android) or on long words, which blocks battery↔matter style noise.
 	function fuzzyOk( tok, word ) {
-		var l = word.length;
-		if ( l >= 6 ) return editDist( tok, word ) <= 2 && tok[ 0 ] === word[ 0 ];
-		if ( l >= 4 ) return editDist( tok, word ) <= 1 && tok[ 0 ] === word[ 0 ];
-		return tok === word;
+		if ( tok === word ) return true;
+		var l = Math.max( tok.length, word.length );
+		if ( l < 4 ) return false;
+		var d = editDist( tok, word );
+		var limit = l >= 13 ? 3 : ( l >= 6 ? 2 : 1 );
+		if ( d > limit ) return false;
+		if ( tok[ 0 ] !== word[ 0 ] && d > 1 && l < 9 ) return false;
+		return ( 1 - d / l ) >= 0.62;
+	}
+
+	// Very light stemmer so deploy/deployment, cache/caching and test/testing
+	// meet in the middle. Returns the original word when no rule applies.
+	function stem( w ) {
+		if ( w.length > 5 && /ments$/.test( w ) ) return w.slice( 0, -5 );
+		if ( w.length > 5 && /ment$/.test( w ) ) return w.slice( 0, -4 );
+		if ( w.length > 6 && /tions$/.test( w ) ) return w.slice( 0, -5 );
+		if ( w.length > 5 && /tion$/.test( w ) ) return w.slice( 0, -4 );
+		if ( w.length > 5 && /ing$/.test( w ) ) return w.slice( 0, -3 );
+		if ( w.length > 4 && /ies$/.test( w ) ) return w.slice( 0, -3 ) + 'y';
+		if ( w.length > 4 && /ed$/.test( w ) ) return w.slice( 0, -2 );
+		if ( w.length > 4 && /ers$/.test( w ) ) return w.slice( 0, -3 );
+		if ( w.length > 4 && /er$/.test( w ) ) return w.slice( 0, -2 );
+		if ( w.length > 4 && /es$/.test( w ) ) return w.slice( 0, -2 );
+		if ( w.length > 3 && /s$/.test( w ) && !/ss$/.test( w ) ) return w.slice( 0, -1 );
+		return w;
 	}
 
 	// ── 7. escRe──────────────────────────────────────────────
@@ -233,55 +255,108 @@ Table of Contents
 	//   token in excerpt   +8     token in category  +6
 	//   ALL tokens in title +40   ALL tokens anywhere +25
 	// ── 12. smartMatch─────────────────────────────────────────
+	function fieldScore( tok, words, wExact, wStem, wPrefix, wFuzzy ) {
+		var best = 0;
+		var ts = stem( tok );
+		for ( var i = 0; i < words.length; i++ ) {
+			var w = words[ i ];
+			if ( w === tok ) { best = Math.max( best, wExact ); }
+			else if ( stem( w ) === ts ) { best = Math.max( best, wStem ); }
+			else if ( w.indexOf( tok ) === 0 || ( ts.length >= 3 && stem( w ).indexOf( ts ) === 0 ) ) { best = Math.max( best, wPrefix ); }
+			else if ( tok.length >= 4 && fuzzyOk( tok, w ) ) { best = Math.max( best, wFuzzy ); }
+		}
+		return best;
+	}
+
+	// How many times a query token occurs in a field. A page that discusses the
+	// term ten times should beat one that mentions it once in a footer code sample.
+	function fieldCount( tok, words ) {
+		var count = 0;
+		var ts = stem( tok );
+		for ( var i = 0; i < words.length; i++ ) {
+			var w = words[ i ];
+			if ( w === tok || stem( w ) === ts || w.indexOf( tok ) === 0 ||
+				( ts.length >= 3 && stem( w ).indexOf( ts ) === 0 ) ||
+				( tok.length >= 4 && fuzzyOk( tok, w ) ) ) count++;
+		}
+		return count;
+	}
+
+	// Adjacent words joined: "blue green" → "bluegreen", "java script" → "javascript".
+	// This lets one typed token match a compound the author wrote as two words.
+	function pairs( words ) {
+		var out = [];
+		for ( var i = 0; i < words.length - 1; i++ ) out.push( words[ i ] + words[ i + 1 ] );
+		return out;
+	}
+
 	function smartMatch( query, posts, limit ) {
 		var q = norm( query );
 		if ( ! q ) return [];
 		var qtoks = q.split( ' ' );
+		var compactQ = q.replace( /\s+/g, '' );
 
 		var scored = [];
 		for ( var pi = 0; pi < posts.length; pi++ ) {
 			var p = posts[ pi ];
 			var titleN = norm( p.title );
-			var tToks = toks( p.title );
-			var slugN = norm( ( p.url || '' ).split( '/' ).filter( Boolean ).pop() || '' );
 			var excerptN = norm( p.excerpt );
+			var bodyN = norm( p.text );
 			var catN = norm( p.cat );
+			var slugN = norm( ( p.url || '' ).split( '/' ).filter( Boolean ).pop() || '' );
+
+			var tToks = p._tt || ( p._tt = toks( p.title ) );
+			var eToks = p._et || ( p._et = toks( p.excerpt ) );
+			var bToks = p._bt || ( p._bt = toks( p.text ) );
+			var tPairs = p._tp || ( p._tp = pairs( tToks ) );
+			var bPairs = p._bp || ( p._bp = pairs( bToks ) );
+
+			var compactTitle = titleN.replace( /\s+/g, '' );
+			var compactBody = ( excerptN + ' ' + bodyN ).replace( /\s+/g, '' );
+
 			var score = 0;
+
+			// Whole-phrase relevance, strongest in the title.
+			if ( q === titleN ) score += 180;
+			else if ( titleN.indexOf( q ) === 0 ) score += 140;
+			else if ( q.length >= 3 && titleN.indexOf( q ) !== -1 ) score += 90;
+			else if ( q.length >= 4 && bodyN.indexOf( q ) !== -1 ) score += 34;
+
+			// Concatenated forms: nodejs ↔ node js, reactjs ↔ react js.
+			if ( compactQ.length >= 5 && compactTitle.indexOf( compactQ ) !== -1 ) score += 110;
+			else if ( compactQ.length >= 5 && compactBody.indexOf( compactQ ) !== -1 ) score += 28;
+
 			var allInTitle = true;
 			var allAnywhere = true;
 
-			if ( q === titleN ) score += 150;
-			else if ( titleN.indexOf( q ) === 0 ) score += 110;
-			else if ( q.length >= 3 && titleN.indexOf( q ) !== -1 ) score += 70;
-
 			for ( var ti = 0; ti < qtoks.length; ti++ ) {
 				var t = qtoks[ ti ];
-				var best = 0;
-
-				// 1) title word exact / prefix / fuzzy
-				for ( var wi = 0; wi < tToks.length; wi++ ) {
-					var w = tToks[ wi ];
-					if ( w === t ) { best = Math.max( best, 34 ); }
-					else if ( w.indexOf( t ) === 0 ) { best = Math.max( best, 28 ); }
-					else if ( fuzzyOk( t, w ) ) { best = Math.max( best, 15 ); }
+				var inTitle = fieldScore( t, tToks, 42, 36, 30, 18 );
+				var inExcerpt = fieldScore( t, eToks, 14, 12, 9, 6 );
+				var inBody = fieldScore( t, bToks, 8, 7, 5, 3 );
+				if ( t.length >= 5 ) {
+					inTitle = Math.max( inTitle, fieldScore( t, tPairs, 26, 22, 18, 12 ) );
+					inBody = Math.max( inBody, fieldScore( t, bPairs, 6, 5, 4, 2 ) );
 				}
-				// 2) looser containment fallbacks
-				if ( ! best ) {
-					if ( titleN.indexOf( t ) !== -1 ) best = 20;
-					else if ( slugN.indexOf( t ) !== -1 ) best = 12;
-					else if ( excerptN.indexOf( t ) !== -1 ) best = 8;
-					else if ( catN.indexOf( t ) !== -1 ) best = 6;
-				}
+				var best = Math.max( inTitle, inExcerpt, inBody );
+				if ( ! best && t.length >= 3 && catN.indexOf( t ) !== -1 ) best = 7;
+				if ( ! best && t.length >= 3 && slugN.indexOf( t ) !== -1 ) best = 9;
+				if ( inTitle ) score += Math.min( 2, fieldCount( t, tToks ) ) * 3;
+				if ( inBody ) score += Math.min( 4, fieldCount( t, bToks ) ) * 2;
 
 				if ( ! best ) allAnywhere = false;
-				// A token "in the title" = title-word exact/prefix/fuzzy (15+)
-				// or title substring (20). Slug/excerpt/category hits don't count.
-				if ( best < 15 ) allInTitle = false;
+				if ( inTitle < 15 ) allInTitle = false;
 				score += best;
 			}
 
-			if ( allInTitle && qtoks.length > 1 ) score += 40;
-			if ( allAnywhere && qtoks.length > 1 ) score += 25;
+			if ( allInTitle && qtoks.length > 1 ) score += 45;
+			if ( allAnywhere && qtoks.length > 1 ) score += 30;
+
+			// Editorial content outranks chrome and utility pages on a tie-ish score.
+			// Exact tool queries still win on title-exact points.
+			if ( p.type === 'post' ) score = Math.round( score * 1.08 );
+			else if ( p.type === 'page' ) score = Math.round( score * 0.94 );
+
 			if ( score > 0 ) scored.push( { p: p, s: score } );
 		}
 

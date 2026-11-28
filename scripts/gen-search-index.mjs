@@ -43,17 +43,23 @@ const pathFromCanonical = (canonical) => {
   }
 };
 
-const posts = list('src/data/posts').map((p) => {
+const HIDDEN = /^(test(?:-\d+)?$|tested-and-working|pagination-playground|qa-mode-test)/i;
+
+const posts = list('src/data/posts')
+  .filter((p) => !HIDDEN.test(String(p.slug || '')) && !HIDDEN.test(String(p.title || '')))
+  .map((p) => {
   const header = p.fragments?.header || '';
   const badge = header.match(/<span[^>]*class="[^"]*badge[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
   const date = header.match(/itemprop="datePublished" content="([^"]+)"/i)?.[1] || header.match(/<time[^>]*datetime="([^"]+)"/i)?.[1] || '';
   const cls = String(p.articleClass || '');
   const catSlug = cls.match(/category-([a-z0-9-]+)/i)?.[1] || '';
+  const bodyText = strip(p.fragments?.body || '').slice(0, 6000);
   return {
     id: `post:${p.slug}`,
     title: decode(p.title),
     url: `${BASE}${p.slug.replace(/^\//, '')}/`,
     excerpt: decode(p.description || strip(p.fragments?.body || '').slice(0, 180)),
+    text: bodyText,
     cat: badge ? decode(badge[1]) : 'Article',
     cat_slug: catSlug,
     date,
@@ -61,8 +67,10 @@ const posts = list('src/data/posts').map((p) => {
   };
 });
 
+const HIDDEN_PAGE = new Set(['search', 'notfound', 'all-posts', 'category-index', 'author-gwill', 'tag-android']);
+
 const pages = list('src/data/pages')
-  .filter((p) => p.canonical && !/\/search\/?$/.test(p.canonical))
+  .filter((p) => p.canonical && !HIDDEN_PAGE.has(p.name) && !/\/search\/?$/.test(p.canonical))
   .map((p) => {
     const url = pathFromCanonical(p.canonical);
     if (!url) return null;
@@ -71,6 +79,7 @@ const pages = list('src/data/pages')
       title: decode(p.title || ''),
       url,
       excerpt: decode(p.description || ''),
+      text: strip(p.body || '').slice(0, 5000),
       cat: 'Page',
       cat_slug: 'page',
       date: '',
@@ -84,6 +93,7 @@ const tools = list('src/data/tools').map((t) => ({
   title: decode(t.title || t.slug),
   url: `${BASE}tools/${t.slug}/`,
   excerpt: decode(t.description || ''),
+  text: strip(t.body || '').slice(0, 4000),
   cat: 'Tool',
   cat_slug: 'tool',
   date: '',
