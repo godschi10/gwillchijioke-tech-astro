@@ -623,6 +623,6 @@
 /* Mobile fixed tab bar must never cover the final comment or the composer. */
 @media (max-width: 767px) {
   .comments-rail {
-    padding-bottom: calc(var(--sp-8) + 56px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   }
 }

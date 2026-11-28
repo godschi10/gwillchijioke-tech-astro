@@ -17,19 +17,19 @@
   var REACTIONS = [
     {
       kind: 'like', label: 'Like',
-      svg: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3z"/><path d="M7 10l4-7a2 2 0 0 1 3 1.8V9h4.2a2 2 0 0 1 2 2.3l-1 7A2 2 0 0 1 17.2 20H7"/></svg>'
+      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3z"/><path d="M7 10l4-7a2 2 0 0 1 3 1.8V9h4.2a2 2 0 0 1 2 2.3l-1 7A2 2 0 0 1 17.2 20H7"/></svg>'
     },
     {
       kind: 'heart', label: 'Love',
-      svg: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
+      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
     },
     {
       kind: 'fire', label: 'Fire',
-      svg: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s4 4.5 4 8a4 4 0 0 1-8 0c0-1.7 1-3.3 1.7-4.6.7 1.2 1.2 2.6 2.3 2.6 0-2 .5-4 .5-6z"/><path d="M6.8 15.5A7 7 0 1 0 18 15"/></svg>'
+      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12.1 22.5c4.2 0 7.6-3.3 7.6-7.4 0-3.1-2.1-5.7-3.9-7.5-.3 1.7-1.1 2.9-2.3 3.7.2-2.7-1-5.5-2.6-7.6-.4 3.3-2.4 5-3.6 6.9-.8 1.3-1.3 2.7-1.3 4.3 0 4.1 3.2 7.6 6.1 7.6z"/></svg>'
     },
     {
       kind: 'laugh', label: 'Haha',
-      svg: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 13c.8 2.3 2.2 3.5 4 3.5s3.2-1.2 4-3.5"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>'
+      svg: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.6 9.8c.8-1.4 1.9-1.4 2.7 0M13.7 9.8c.8-1.4 1.9-1.4 2.7 0"/><path d="M7.3 13.2h9.4c0 3.2-2.1 5.4-4.7 5.4s-4.7-2.2-4.7-5.4z" fill="currentColor" stroke="none"/><path d="M5.4 8.9c-.7 1.2-1.1 2-1.1 2.7a1.2 1.2 0 0 0 2.4 0c0-.7-.5-1.5-1.3-2.7z" fill="currentColor" stroke="none"/><path d="M18.6 8.9c.8 1.2 1.3 2 1.3 2.7a1.2 1.2 0 0 1-2.4 0c0-.7.4-1.5 1.1-2.7z" fill="currentColor" stroke="none"/></svg>'
     }
   ];
 
